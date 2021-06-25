@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: medium;
+}
+
+caption {
+  margin-bottom: 0.5rem;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
