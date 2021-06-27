@@ -51,10 +51,10 @@ function App() {
         <div>
           <div className="clickButton">
             <button onClick={() => clickButton2()}>
-              2. Click me to render something.
+              2. Duct
             </button>
           </div>
-          <div>{state2 ? "Button is clicked." : "Button is not clicked."}</div>
+          <div>{state2 ? "Duct" : ""}</div>
         </div>
       );
     }
@@ -427,7 +427,7 @@ function App() {
       return (
         <div>
           <table>
-            <caption>Ducts</caption>
+            <caption>Duct</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -439,7 +439,7 @@ function App() {
   return (
     <div style={{ fontSize: "2rem" }} className="App">
       <button onClick={() => clickButton1()}>
-        {state1 ? "1. 2nd button is Active" : "1. 2nd button is NOT active"}
+        {state1 ? "1. 15HS31" : "1. Null"}
       </button>
       <div>{renderButton2()}</div>
       <div>{renderTable()}</div>
