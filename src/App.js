@@ -122,7 +122,7 @@ function App() {
   const ductLength = () => 1.2;
 
   const ductSurface = (i, j) => {
-    return Math.ceil((sizeA2(i) + sizeB2(j)) * 2 * ductLength() * 100) / 100;
+    return Math.ceil((sizeA2(i) + sizeB2(j)) * 2 * ductLength() * 1000) / 1000;
   };
 
   const reinforcementStep = () => 0.75;
@@ -164,31 +164,31 @@ function App() {
 
   const bomDisks = (i, j) => {
     let disksQ =
-      sizeA2(i) >= 1
+      (sizeA2(i) >= 1
         ? 4 * Math.floor(sizeA2(i) / reinforcementStep())
-        : 0 + sizeB2(j) >= 1
+        : 0) + (sizeB2(j) >= 1
         ? 4 * Math.floor(sizeB2(j) / reinforcementStep())
-        : 0;
+        : 0);
     return disksQ;
   };
 
   const bomScrews = (i, j) => {
     let screwsQ =
-      sizeA2(i) >= 1
+      (sizeA2(i) >= 1
         ? 2 * Math.floor(sizeA2(i) / reinforcementStep())
-        : 0 + sizeB2(j) >= 1
+        : 0) + (sizeB2(j) >= 1
         ? 2 * Math.floor(sizeB2(j) / reinforcementStep())
-        : 0;
+        : 0);
     return screwsQ;
   };
 
   const bomReinforcement = (i, j) => {
     let reinforcementQ =
-      sizeA2(i) >= 1
-        ? sizeA2(i) * Math.floor(sizeA2(i) / reinforcementStep())
-        : 0 + sizeB2(j) >= 1
+      (sizeA2(i) >= 1
+        ? sizeA2(i) * Math.floor(sizeA2(i) / reinforcementStep()) 
+        : 0) + (sizeB2(j) >= 1
         ? sizeB2(j) * Math.floor(sizeB2(j) / reinforcementStep())
-        : 0;
+        : 0);
     return reinforcementQ;
   };
 
@@ -249,7 +249,7 @@ function App() {
   };
 
   const laborCost = (i, j) => {
-    if (sizeAB() < 0.1225) {
+    if (sizeAB(i, j) < 0.1225) {
       return laborCostRates.hourlyRate * (10 / 60);
     } else if (sizeAB(i, j) < 0.5625) {
       return laborCostRates.hourlyRate * (15 / 60);
