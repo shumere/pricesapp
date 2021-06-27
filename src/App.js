@@ -99,7 +99,7 @@ function App() {
   };
 
   const sizeB = (j) => {
-    let b = tableValueForTheFirstColumn(j - 1) / 1000;
+    let b = tableValueForTheFirstColumn(j) / 1000;
     return b;
   };
 
@@ -122,7 +122,7 @@ function App() {
   const ductLength = () => 1.2;
 
   const ductSurface = (i, j) => {
-    return (sizeA2(i) + sizeB2(j)) * 2 * ductLength();
+    return Math.ceil((sizeA2(i) + sizeB2(j)) * 2 * ductLength() * 100) / 100;
   };
 
   const reinforcementStep = () => 0.75;
@@ -137,37 +137,37 @@ function App() {
     return flangesQ;
   };
 
-  const bomCorners = (i, j) => {
+  const bomCorners = () => {
     let cornersQ = 8;
     return cornersQ;
   };
 
-  const bomTape = (i, j) => {
-    let tapeQ = (ductLength() * 2) / 50;
+  const bomTape = () => {
+    let tapeQ = Math.ceil(((ductLength() * 2) / 50) * 100) / 100;
     return tapeQ;
   };
 
-  const bomPanelGlue = (i, j) => {
-    let panelGlueQ = ductLength() * 0.02 * 4;
+  const bomPanelGlue = () => {
+    let panelGlueQ = Math.ceil(ductLength() * 0.02 * 4 * 100) / 100;
     return panelGlueQ;
   };
 
   const bomFlangeGlue = (i, j) => {
-    let flangeGlueQ = (bomFlanges(i, j) * 10) / 500;
+    let flangeGlueQ = Math.ceil(((bomFlanges(i, j) * 10) / 500) * 100) / 100;
     return flangeGlueQ;
   };
 
-  const bomSealant = (i, j) => {
-    let sealantQ = ductLength() * 0.2;
+  const bomSealant = () => {
+    let sealantQ = Math.ceil(ductLength() * 0.2 * 100) / 100;
     return sealantQ;
   };
 
   const bomDisks = (i, j) => {
     let disksQ =
       sizeA2(i) >= 1
-        ? (4 * sizeA2(i)) / reinforcementStep()
+        ? 4 * Math.floor(sizeA2(i) / reinforcementStep())
         : 0 + sizeB2(j) >= 1
-        ? (4 * sizeB2(j)) / reinforcementStep()
+        ? 4 * Math.floor(sizeB2(j) / reinforcementStep())
         : 0;
     return disksQ;
   };
@@ -175,9 +175,9 @@ function App() {
   const bomScrews = (i, j) => {
     let screwsQ =
       sizeA2(i) >= 1
-        ? (2 * sizeA2(i)) / reinforcementStep()
+        ? 2 * Math.floor(sizeA2(i) / reinforcementStep())
         : 0 + sizeB2(j) >= 1
-        ? (2 * sizeB2(j)) / reinforcementStep()
+        ? 2 * Math.floor(sizeB2(j) / reinforcementStep())
         : 0;
     return screwsQ;
   };
@@ -185,9 +185,9 @@ function App() {
   const bomReinforcement = (i, j) => {
     let reinforcementQ =
       sizeA2(i) >= 1
-        ? (sizeA2(i) * sizeA2(i)) / reinforcementStep()
+        ? sizeA2(i) * Math.floor(sizeA2(i) / reinforcementStep())
         : 0 + sizeB2(j) >= 1
-        ? (sizeB2(j) * sizeB2(j)) / reinforcementStep()
+        ? sizeB2(j) * Math.floor(sizeB2(j) / reinforcementStep())
         : 0;
     return reinforcementQ;
   };
@@ -274,24 +274,24 @@ function App() {
     return bomFlanges(i, j) * costsPerUnit.flangesCost["161/30"];
   };
 
-  const totalCornerCost = (i, j) => {
-    return bomCorners(i, j) * costsPerUnit.ductCornerCost["21SQ02"];
+  const totalCornerCost = () => {
+    return bomCorners() * costsPerUnit.ductCornerCost["21SQ02"];
   };
 
-  const totalTapeCost = (i, j) => {
-    return bomTape(i, j) * costsPerUnit.tapeCost["21NS05"];
+  const totalTapeCost = () => {
+    return bomTape() * costsPerUnit.tapeCost["21NS05"];
   };
 
-  const totalPanelGlueCost = (i, j) => {
-    return bomPanelGlue(i, j) * costsPerUnit.panelGlueCost["21CL02"];
+  const totalPanelGlueCost = () => {
+    return bomPanelGlue() * costsPerUnit.panelGlueCost["21CL02"];
   };
 
   const totalFlangesGlueCost = (i, j) => {
     return bomFlangeGlue(i, j) * costsPerUnit.flangesGlueCost["21CL09"];
   };
 
-  const totalSealantCost = (i, j) => {
-    return bomSealant(i, j) * costsPerUnit.sealantCost["21SL01"];
+  const totalSealantCost = () => {
+    return bomSealant() * costsPerUnit.sealantCost["21SL01"];
   };
 
   const totalDisksCost = (i, j) => {
@@ -310,11 +310,11 @@ function App() {
     return (
       totalPanelCost(i, j) +
       totalFlangeCost(i, j) +
-      totalCornerCost(i, j) +
-      totalTapeCost(i, j) +
-      totalPanelGlueCost(i, j) +
+      totalCornerCost() +
+      totalTapeCost() +
+      totalPanelGlueCost() +
       totalFlangesGlueCost(i, j) +
-      totalSealantCost(i, j) +
+      totalSealantCost() +
       totalDisksCost(i, j) +
       totalScrewCost(i, j) +
       totalReinforcementCost(i, j)
@@ -327,7 +327,11 @@ function App() {
 
   const totalSellingPrice = (i, j) => {
     return (
-      totalMaterialCost(i, j) * transportCost() + totalCost() * (1 + gainCost())
+      Math.round(
+        (totalMaterialCost(i, j) * transportCost() +
+          totalCost(i, j) * (1 + gainCost())) *
+          100
+      ) / 100
     );
   };
 
@@ -350,7 +354,7 @@ function App() {
   // };
 
   const cellContent = (i, j) => {
-    return ductSurface(i, j);
+    return totalSellingPrice(i, j);
   };
 
   //==========
@@ -380,7 +384,7 @@ function App() {
     let i = cellValue;
     return (
       <td key={j === 1 ? i : i + j}>
-        {j === 1 ? tableValueForTheFirstColumn(i) : cellContent(i, j)}
+        {j === 1 ? tableValueForTheFirstColumn(i) : `${cellContent(i, j - 1)}€`}
       </td>
     );
   };
