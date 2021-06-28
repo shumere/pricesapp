@@ -1,8 +1,3 @@
-import {
-  tableValueForTheRow,
-  tableValueForTheFirstColumn,
-} from "./cellContent";
-
 //Material Type List
 
 const material = {
