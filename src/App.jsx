@@ -5,7 +5,7 @@ import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
   cellContent,
-} from "./Functions/cellContent";
+} from "./Functions/ductCalculation";
 import "./App.css";
 
 export default function App() {

@@ -3,7 +3,7 @@ import {
   tableValueForTheFirstColumn,
 } from "./cellContent";
 
-//Duct Calculation
+//Material Type List
 
 const material = {
   thickness: {
@@ -67,6 +67,16 @@ const costsPerUnit = {
 
 //console.log(materialThickness["30mm"])
 
+//Duct Calculation
+
+export const tableValueForTheRow = (i) => {
+  return (i *= 100);
+};
+
+export const tableValueForTheFirstColumn = (j) => {
+  return (j *= 100);
+};
+
 const sizeA = (i) => {
   let a = tableValueForTheRow(i) / 1000;
   return a;
@@ -105,6 +115,8 @@ const ductSurface = (i, j) => {
 };
 
 const reinforcementStep = () => 0.75;
+
+//Duct BOM
 
 const bomPanel = (i, j) => {
   let panelQ = ductSurface(i, j);
@@ -166,6 +178,8 @@ const bomReinforcement = (i, j) => {
   return reinforcementQ;
 };
 
+//Profit Rates
+
 const transportCost = () => {
   let logistics = 0.15;
   return logistics;
@@ -198,6 +212,8 @@ const laborCost = (i, j) => {
     return laborCostRates.hourlyRate * (30 / 60);
   }
 };
+
+//Price Calculation
 
 const est = (i, j) => {
   return laborCost(i, j) * (1 + laborCostRates.employersSocialTax);
@@ -270,4 +286,8 @@ export const totalSellingPrice = (i, j) => {
         100
     ) / 100
   );
+};
+
+export const cellContent = (i, j) => {
+  return totalSellingPrice(i, j);
 };
