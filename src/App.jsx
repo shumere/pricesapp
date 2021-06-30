@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { checkButton, clickButton, selectState1, selectState2 } from "./index";
+import { changeMaterialType, clickDuct, materialType, showDuct } from "./index";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
@@ -8,10 +8,10 @@ import {
 } from "./Functions/ductCalculation";
 import "./App.css";
 
-export default function App() {
+function App() {
   const dispatch = useDispatch();
-  let state1 = useSelector(selectState1);
-  let state2 = useSelector(selectState2);
+  let state1 = useSelector(materialType);
+  let state2 = useSelector(showDuct);
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   // const CLICKBUTTON = "buttons/clickButton";
@@ -39,12 +39,54 @@ export default function App() {
   //   dispatch(changeSecondState());
   // };
 
-  const clickButton1 = () => {
-    dispatch(checkButton(!state1));
+  const clickResetButton = () => {
+    dispatch(changeMaterialType("Undefined"))
+  }
+  
+  const clickButton15HS31 = () => {
+    dispatch(changeMaterialType("15HS31"));
   };
 
-  const clickButton2 = () => {
-    dispatch(clickButton(!state2));
+  const clickButton15HP31 = () => {
+    dispatch(changeMaterialType("15HP31"));
+  };
+
+  const clickButton15HR31 = () => {
+    dispatch(changeMaterialType("15HR31"));
+  };
+
+  const clickButton15HR31ABT = () => {
+    dispatch(changeMaterialType("15HR31ABT"));
+  };
+
+  const clickButton15HR31PLUS = () => {
+    dispatch(changeMaterialType("15HR31PLUS"));
+  };
+
+  const clickButton15HK31 = () => {
+    dispatch(changeMaterialType("15HK31"));
+  };
+
+  const clickButton15HB21 = () => {
+    dispatch(changeMaterialType("15HB21"));
+  };
+
+  const clickButton15HE21 = () => {
+    dispatch(changeMaterialType("15HE21"));
+  };
+
+  const clickButton15HN21ABT = () => {
+    dispatch(changeMaterialType("15HN21ABT"));
+  };
+
+  const clickButton15HN21PLUS = () => {
+    dispatch(changeMaterialType("15HN21PLUS"));
+  };
+  
+  
+
+  const clickButtonDuct = () => {
+    dispatch(clickDuct(!state2));
   };
 
   //==========
@@ -55,7 +97,7 @@ export default function App() {
       return (
         <div>
           <div className="clickButton">
-            <button onClick={() => clickButton2()}>2. Duct</button>
+            <button onClick={() => clickButtonDuct()}>2. Duct</button>
           </div>
           <div>{state2 ? "Duct" : ""}</div>
         </div>
@@ -90,7 +132,7 @@ export default function App() {
     let i = cellValue;
     return (
       <td key={j === 1 ? i : i + j}>
-        {j === 1 ? tableValueForTheFirstColumn(i) : `${cellContent(i, j - 1)}€`}
+        {j === 1 ? tableValueForTheFirstColumn(i) : state1 !== "Undefined" ? `${cellContent(i, j - 1, state1)}€` : "N/A"}
       </td>
     );
   };
@@ -102,10 +144,6 @@ export default function App() {
     }
     return tableCells;
   };
-
-  // const renderTableCellsWithData = (cellValue) => {
-  //   return renderTableCells(cellValue);
-  // };
 
   const renderTableRow = (cellValue) => {
     return <tr key={cellValue}>{renderTableCells(cellValue)}</tr>;
@@ -129,7 +167,7 @@ export default function App() {
   //Render the whole table
 
   const renderTable = () => {
-    if (state1 && state2) {
+    if (state2) {
       return (
         <div>
           <table>
@@ -144,11 +182,42 @@ export default function App() {
 
   return (
     <div style={{ fontSize: "2rem" }} className="App">
-      <button onClick={() => clickButton1()}>
-        {state1 ? "1. 15HS31" : "1. Null"}
+      <button onClick={()=> clickResetButton()}>Reset</button>
+      <button onClick={() => clickButton15HS31()}>
+        1. 15HS31
       </button>
+      <button onClick={() => clickButton15HP31()}>
+        2. 15HP31
+      </button>
+      <button onClick={() => clickButton15HR31()}>
+        3. 15HR31
+      </button>
+      <button onClick={() => clickButton15HR31ABT()}>
+        4. 15HR31ABT
+      </button>
+      <button onClick={() => clickButton15HR31PLUS()}>
+        5. 15HR31PLUS
+      </button>
+      <button onClick={() => clickButton15HK31()}>
+        6. 15HK31
+      </button>
+      <button onClick={() => clickButton15HB21()}>
+        7. 15HB21
+      </button>
+      <button onClick={() => clickButton15HE21()}>
+        8. 15HE21
+      </button>
+      <button onClick={() => clickButton15HN21ABT()}>
+        9. 15HN21ABT
+      </button>
+      <button onClick={() => clickButton15HN21PLUS()}>
+        10. 15HN21PLUS
+      </button>
+      <p>{`Current state is: ${state1}`}</p>
       <div>{renderButton2()}</div>
       <div>{renderTable()}</div>
     </div>
   );
 }
+
+export default App

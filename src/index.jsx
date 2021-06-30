@@ -27,15 +27,15 @@ import { Provider } from "react-redux";
 const buttonSlice = createSlice({
   name: "buttons",
   initialState: {
-    currentState1: false,
-    currentState2: false,
+    materialType: "15HS31",
+    showDuct: false,
   },
   reducers: {
-    checkButton: (state, action) => {
-      return { ...state, currentState1: action.payload };
+    changeMaterialType: (state, action) => {
+      return { ...state, materialType: action.payload };
     },
-    clickButton: (state, action) => {
-      return { ...state, currentState2: action.payload };
+    clickDuct: (state, action) => {
+      return { ...state, showDuct: action.payload };
     },
   },
 });
@@ -46,9 +46,9 @@ const store = configureStore({
   },
 });
 
-export const {checkButton, clickButton} = buttonSlice.actions;
-export const selectState1 = (state) => state.buttons.currentState1;
-export const selectState2 = (state) => state.buttons.currentState2;
+export const {changeMaterialType, clickDuct} = buttonSlice.actions;
+export const materialType = (state) => state.buttons.materialType;
+export const showDuct = (state) => state.buttons.showDuct;
 
 const root = document.getElementById("root");
 

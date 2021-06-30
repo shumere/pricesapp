@@ -9,24 +9,32 @@ const material = {
     "20mm": 26,
     "30mm": 36,
   },
-  panelType: {
-    "15HB21": "15HB21",
-    "15HS31": "15HS31",
-  },
-  flangesType: {
-    161: "161",
-    "161/30": "161/30",
-  },
-  ductAngleType: {
-    "21SQ01": "21SQ01",
-    "21SQ02": "21SQ02",
-  },
+  // panelType: {
+  //   "15HB21": "15HB21",
+  //   "15HS31": "15HS31",
+  // },
+  // flangesType: {
+  //   161: "161",
+  //   "161/30": "161/30",
+  // },
+  // ductAngleType: {
+  //   "21SQ01": "21SQ01",
+  //   "21SQ02": "21SQ02",
+  // },
 };
 
 const costsPerUnit = {
   panelCost: {
     "15HB21": 5,
+    "15HE21" : 9.44,
+    "15HN21ABT" : 11,
+    "15HN21PLUS" : 12.65,
     "15HS31": 9,
+    "15HP31" : 8.9,
+    "15HR31" : 14,
+    "15HR31ABT" : 13.5,
+    "15HR31PLUS" : 15.525,
+    "15HK31" : 13.75
   },
   flangesCost: {
     161: 1.15,
@@ -62,6 +70,58 @@ const costsPerUnit = {
 
 //console.log(materialThickness["30mm"])
 
+//Material check for thickness
+
+const materialCheckForThickness = (state1) => {
+  if (state1 === "15HS31" || state1 === "15HP31" ||  state1 === "15HR31" || state1 === "15HR31ABT" || state1 === "15HR31PLUS" || state1 === "15HK31") {
+    return (material.thickness["30mm"] / 1000) * 2;
+  } else if (state1 === "15HB21" || state1 === "15HE21" || state1 === "15HN21ABT" || state1 === "15HN21PLUS") {
+    return (material.thickness["20mm"] / 1000) * 2;
+  } else {
+    return 0;
+  }
+};
+
+// const materialCheckForPanel = (state1) => {
+//   if (state1 === "15HS31") {
+//     return costsPerUnit.panelCost["15HS31"];
+//   } else if (state1 === "15HB21") {
+//     return costsPerUnit.panelCost["15HB21"];
+//   } else {
+//     return 0;
+//   }
+// };
+
+const materialCheckForFlanges = (state1) => {
+  if (state1 === "15HS31" || state1 === "15HP31" ||  state1 === "15HR31" || state1 === "15HR31ABT" || state1 === "15HR31PLUS" || state1 === "15HK31") {
+    return costsPerUnit.flangesCost["161/30"];
+  } else if (state1 === "15HB21" || state1 === "15HE21" || state1 === "15HN21ABT" || state1 === "15HN21PLUS") {
+    return costsPerUnit.flangesCost[161];
+  } else {
+    return 0;
+  }
+};
+
+const materialCheckForCorner = (state1) => {
+  if (state1 === "15HS31" || state1 === "15HP31" ||  state1 === "15HR31" || state1 === "15HR31ABT" || state1 === "15HR31PLUS" || state1 === "15HK31") {
+    return costsPerUnit.ductCornerCost["21SQ02"];
+  } else if (state1 === "15HB21" || state1 === "15HE21" || state1 === "15HN21ABT" || state1 === "15HN21PLUS") {
+    return costsPerUnit.ductCornerCost["21SQ01"];
+  } else {
+    return 0;
+  }
+};
+
+const materialCheckForFlangeGlue = (state1) => {
+  if (state1 === "15HS31" || state1 === "15HP31" ||  state1 === "15HR31" || state1 === "15HR31ABT" || state1 === "15HR31PLUS" || state1 === "15HK31") {
+    return costsPerUnit.flangesGlueCost["21CL09"];
+  } else if (state1 === "15HB21" || state1 === "15HE21" || state1 === "15HN21ABT" || state1 === "15HN21PLUS") {
+    return costsPerUnit.flangesGlueCost["21CL08"];
+  } else {
+    return 0;
+  }
+};
+
 //Duct Calculation
 
 export const tableValueForTheRow = (i) => {
@@ -77,19 +137,14 @@ const sizeA = (i) => {
   return a;
 };
 
-const sizeA2 = (i) => {
-  let a2 = sizeA(i) + (material.thickness["30mm"] / 1000) * 2;
+// const sizeA2 = (i, state1) => {
+//   let a2 = sizeA(i) + (state1 === "15HS31" ? ((material.thickness["30mm"] / 1000) * 2) : ((material.thickness["20mm"] / 1000) * 2));
+//   return a2;
+// };
+
+const sizeA2 = (i, state1) => {
+  let a2 = sizeA(i) + materialCheckForThickness(state1);
   return a2;
-};
-
-const sizeB = (j) => {
-  let b = tableValueForTheFirstColumn(j) / 1000;
-  return b;
-};
-
-const sizeB2 = (j) => {
-  let b2 = sizeB(j) + (material.thickness["30mm"] / 1000) * 2;
-  return b2;
 };
 
 //SizeA3 is for fittings
@@ -97,6 +152,17 @@ const sizeA3 = (i) => {
   let a3 = sizeA2(i) + (material.millerSpace["30mm"] / 1000) * 2;
   return a3;
 };
+
+const sizeB = (j) => {
+  let b = tableValueForTheFirstColumn(j) / 1000;
+  return b;
+};
+
+const sizeB2 = (j, state1) => {
+  let b2 = sizeB(j) + materialCheckForThickness(state1);
+  return b2;
+};
+
 //SizeB3 is for fittings
 const sizeB3 = (j) => {
   let b3 = sizeB2(j) + (material.millerSpace["30mm"] / 1000) * 2;
@@ -105,16 +171,20 @@ const sizeB3 = (j) => {
 
 const ductLength = () => 1.2;
 
-const ductSurface = (i, j) => {
-  return Math.ceil((sizeA2(i) + sizeB2(j)) * 2 * ductLength() * 1000) / 1000;
+const ductSurface = (i, j, state1) => {
+  return (
+    Math.ceil(
+      (sizeA2(i, state1) + sizeB2(j, state1)) * 2 * ductLength() * 1000
+    ) / 1000
+  );
 };
 
 const reinforcementStep = () => 0.75;
 
 //Duct BOM
 
-const bomPanel = (i, j) => {
-  let panelQ = ductSurface(i, j);
+const bomPanel = (i, j, state1) => {
+  let panelQ = ductSurface(i, j, state1);
   return panelQ;
 };
 
@@ -148,27 +218,35 @@ const bomSealant = () => {
   return sealantQ;
 };
 
-const bomDisks = (i, j) => {
+const bomDisks = (i, j, state1) => {
   let disksQ =
-    (sizeA2(i) >= 1 ? 4 * Math.floor(sizeA2(i) / reinforcementStep()) : 0) +
-    (sizeB2(j) >= 1 ? 4 * Math.floor(sizeB2(j) / reinforcementStep()) : 0);
+    (sizeA2(i, state1) >= 1
+      ? 4 * Math.floor(sizeA2(i, state1) / reinforcementStep())
+      : 0) +
+    (sizeB2(j, state1) >= 1
+      ? 4 * Math.floor(sizeB2(j, state1) / reinforcementStep())
+      : 0);
   return disksQ;
 };
 
-const bomScrews = (i, j) => {
+const bomScrews = (i, j, state1) => {
   let screwsQ =
-    (sizeA2(i) >= 1 ? 2 * Math.floor(sizeA2(i) / reinforcementStep()) : 0) +
-    (sizeB2(j) >= 1 ? 2 * Math.floor(sizeB2(j) / reinforcementStep()) : 0);
+    (sizeA2(i, state1) >= 1
+      ? 2 * Math.floor(sizeA2(i, state1) / reinforcementStep())
+      : 0) +
+    (sizeB2(j, state1) >= 1
+      ? 2 * Math.floor(sizeB2(j, state1) / reinforcementStep())
+      : 0);
   return screwsQ;
 };
 
-const bomReinforcement = (i, j) => {
+const bomReinforcement = (i, j, state1) => {
   let reinforcementQ =
-    (sizeA2(i) >= 1
-      ? sizeA2(i) * Math.floor(sizeA2(i) / reinforcementStep())
+    (sizeA2(i, state1) >= 1
+      ? sizeA2(i, state1) * Math.floor(sizeA2(i, state1) / reinforcementStep())
       : 0) +
-    (sizeB2(j) >= 1
-      ? sizeB2(j) * Math.floor(sizeB2(j) / reinforcementStep())
+    (sizeB2(j, state1) >= 1
+      ? sizeB2(j, state1) * Math.floor(sizeB2(j, state1) / reinforcementStep())
       : 0);
   return reinforcementQ;
 };
@@ -214,16 +292,16 @@ const est = (i, j) => {
   return laborCost(i, j) * (1 + laborCostRates.employersSocialTax);
 };
 
-const totalPanelCost = (i, j) => {
-  return bomPanel(i, j) * costsPerUnit.panelCost["15HS31"];
+const totalPanelCost = (i, j, state1) => {
+  return bomPanel(i, j, state1) * costsPerUnit.panelCost[state1];
 };
 
-const totalFlangeCost = (i, j) => {
-  return bomFlanges(i, j) * costsPerUnit.flangesCost["161/30"];
+const totalFlangeCost = (i, j, state1) => {
+  return bomFlanges(i, j) * materialCheckForFlanges(state1);
 };
 
-const totalCornerCost = () => {
-  return bomCorners() * costsPerUnit.ductCornerCost["21SQ02"];
+const totalCornerCost = (state1) => {
+  return bomCorners() * materialCheckForCorner(state1);
 };
 
 const totalTapeCost = () => {
@@ -234,55 +312,57 @@ const totalPanelGlueCost = () => {
   return bomPanelGlue() * costsPerUnit.panelGlueCost["21CL02"];
 };
 
-const totalFlangesGlueCost = (i, j) => {
-  return bomFlangeGlue(i, j) * costsPerUnit.flangesGlueCost["21CL09"];
+const totalFlangesGlueCost = (i, j, state1) => {
+  return bomFlangeGlue(i, j) * materialCheckForFlangeGlue(state1);
 };
 
 const totalSealantCost = () => {
   return bomSealant() * costsPerUnit.sealantCost["21SL01"];
 };
 
-const totalDisksCost = (i, j) => {
-  return bomDisks(i, j) * costsPerUnit.diskCost["21RF01"];
+const totalDisksCost = (i, j, state1) => {
+  return bomDisks(i, j, state1) * costsPerUnit.diskCost["21RF01"];
 };
 
-const totalScrewCost = (i, j) => {
-  return bomScrews(i, j) * costsPerUnit.screwCost["21RF03"];
+const totalScrewCost = (i, j, state1) => {
+  return bomScrews(i, j, state1) * costsPerUnit.screwCost["21RF03"];
 };
 
-const totalReinforcementCost = (i, j) => {
-  return bomReinforcement(i, j) * costsPerUnit.reinforcementCost["21RF02"];
-};
-
-const totalMaterialCost = (i, j) => {
+const totalReinforcementCost = (i, j, state1) => {
   return (
-    totalPanelCost(i, j) +
-    totalFlangeCost(i, j) +
-    totalCornerCost() +
-    totalTapeCost() +
-    totalPanelGlueCost() +
-    totalFlangesGlueCost(i, j) +
-    totalSealantCost() +
-    totalDisksCost(i, j) +
-    totalScrewCost(i, j) +
-    totalReinforcementCost(i, j)
+    bomReinforcement(i, j, state1) * costsPerUnit.reinforcementCost["21RF02"]
   );
 };
 
-const totalCost = (i, j) => {
-  return totalMaterialCost(i, j) + est(i, j);
+const totalMaterialCost = (i, j, state1) => {
+  return (
+    totalPanelCost(i, j, state1) +
+    totalFlangeCost(i, j, state1) +
+    totalCornerCost(state1) +
+    totalTapeCost() +
+    totalPanelGlueCost() +
+    totalFlangesGlueCost(i, j, state1) +
+    totalSealantCost() +
+    totalDisksCost(i, j, state1) +
+    totalScrewCost(i, j, state1) +
+    totalReinforcementCost(i, j, state1)
+  );
 };
 
-export const totalSellingPrice = (i, j) => {
+const totalCost = (i, j, state1) => {
+  return totalMaterialCost(i, j, state1) + est(i, j);
+};
+
+const totalSellingPrice = (i, j, state1) => {
   return (
     Math.round(
-      (totalMaterialCost(i, j) * transportCost() +
-        totalCost(i, j) * (1 + gainCost())) *
+      (totalMaterialCost(i, j, state1) * transportCost() +
+        totalCost(i, j, state1) * (1 + gainCost())) *
         100
     ) / 100
   );
 };
 
-export const cellContent = (i, j) => {
-  return totalSellingPrice(i, j);
+export const cellContent = (i, j, state1) => {
+  return totalSellingPrice(i, j, state1);
 };
