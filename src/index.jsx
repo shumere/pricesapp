@@ -29,6 +29,7 @@ const buttonSlice = createSlice({
   initialState: {
     materialType: "15HS31",
     showDuct: false,
+    showElbow90: false,
   },
   reducers: {
     changeMaterialType: (state, action) => {
@@ -36,6 +37,9 @@ const buttonSlice = createSlice({
     },
     clickDuct: (state, action) => {
       return { ...state, showDuct: action.payload };
+    },
+    clickElbow90: (state, action) => {
+      return { ...state, showElbow90: action.payload };
     },
   },
 });
@@ -46,9 +50,10 @@ const store = configureStore({
   },
 });
 
-export const {changeMaterialType, clickDuct} = buttonSlice.actions;
+export const {changeMaterialType, clickDuct, clickElbow90} = buttonSlice.actions;
 export const materialType = (state) => state.buttons.materialType;
 export const showDuct = (state) => state.buttons.showDuct;
+export const showElbow90 = (state) => state.buttons.showElbow90;
 
 const root = document.getElementById("root");
 

@@ -1,6 +1,7 @@
 import { laborCostRates } from "./LaborCostRates/laborCostRates";
 import { costsPerUnit } from "./CostPerUnit/costPerUnit";
 import {
+  materialCheckForThickness,
   materialCheckForFlanges,
   materialCheckForCorner,
   materialCheckForFlangeGlue,
@@ -10,24 +11,38 @@ import {
   sizeA,
   sizeB,
   sizeA2,
+  sizeA3,
   sizeB2,
+  sizeB3,
   sizeAB,
 } from "./calculation";
 
-const ductLength = () => 1.2;
+const E = () => {
+  return 0.1;
+};
 
-const ductSurface = (i, j, state1) => {
-  return (
-    Math.ceil(
-      (sizeA2(i, state1) + sizeB2(j, state1)) * 2 * ductLength() * 1000
-    ) / 1000
-  );
+const F = () => {
+  return 0.1;
+};
+
+const L1 = (state1) => {
+  return E() + materialCheckForThickness(state1);
+};
+
+const L2 = F();
+
+const Lu = (state1) => {
+  return L1(state1) + L2;
+};
+
+const elbow90Surface = (i, j, state1) => {
+  return (sizeA3(i) + sizeB3(j)) * 2 * Lu(state1);
 };
 
 //Duct BOM
 
 const bomPanel = (i, j, state1) => {
-  let panelQ = ductSurface(i, j, state1);
+  let panelQ = elbow90Surface(i, j, state1);
   return panelQ;
 };
 
@@ -41,13 +56,13 @@ const bomCorners = () => {
   return cornersQ;
 };
 
-const bomTape = () => {
-  let tapeQ = Math.ceil(((ductLength() * 2) / 50) * 100) / 100;
+const bomTape = (i, j, state1) => {
+  let tapeQ = Math.ceil((bomPanel(i, j, state1) / 50) * 100) / 100;
   return tapeQ;
 };
 
-const bomPanelGlue = () => {
-  let panelGlueQ = Math.ceil(ductLength() * 0.02 * 4 * 100) / 100;
+const bomPanelGlue = (i, j, state1) => {
+  let panelGlueQ = Math.ceil(bomPanel(i, j, state1) * 0.01 * 4 * 100) / 100;
   return panelGlueQ;
 };
 
@@ -56,8 +71,8 @@ const bomFlangeGlue = (i, j) => {
   return flangeGlueQ;
 };
 
-const bomSealant = () => {
-  let sealantQ = Math.ceil(ductLength() * 0.2 * 100) / 100;
+const bomSealant = (i, j, state1) => {
+  let sealantQ = Math.ceil(bomPanel(i, j, state1) * 0.1 * 100) / 100;
   return sealantQ;
 };
 
@@ -96,24 +111,50 @@ const bomReinforcement = (i, j, state1) => {
 
 //labor cost
 
-const laborCost = (i, j) => {
-  if (sizeAB(i, j) < 0.1225) {
-    return laborCostRates.hourlyRate * (10 / 60);
-  } else if (sizeAB(i, j) < 0.5625) {
-    return laborCostRates.hourlyRate * (15 / 60);
-  } else if (sizeAB(i, j) < 1.1025) {
-    return laborCostRates.hourlyRate * (20 / 60);
-  } else if (sizeAB(i, j) < 2.25) {
-    return laborCostRates.hourlyRate * (25 / 60);
-  } else {
-    return laborCostRates.hourlyRate * (30 / 60);
+const laborCost = (i, j, state1) => {
+  if (
+    state1 === "15HS31" ||
+    state1 === "15HP31" ||
+    state1 === "15HR31" ||
+    state1 === "15HR31ABT" ||
+    state1 === "15HR31PLUS" ||
+    state1 === "15HK31"
+  ) {
+    if (sizeAB(i, j) < 0.1225) {
+      return laborCostRates.hourlyRate * (30 / 60);
+    } else if (sizeAB(i, j) < 0.5625) {
+      return laborCostRates.hourlyRate * (35 / 60);
+    } else if (sizeAB(i, j) < 1.1025) {
+      return laborCostRates.hourlyRate * (40 / 60);
+    } else if (sizeAB(i, j) < 2.25) {
+      return laborCostRates.hourlyRate * (45 / 60);
+    } else {
+      return laborCostRates.hourlyRate * (55 / 60);
+    }
+  } else if (
+    state1 === "15HB21" ||
+    state1 === "15HE21" ||
+    state1 === "15HN21ABT" ||
+    state1 === "15HN21PLUS"
+  ) {
+    if (sizeAB(i, j) < 0.1225) {
+      return laborCostRates.hourlyRate * (20 / 60);
+    } else if (sizeAB(i, j) < 0.5625) {
+      return laborCostRates.hourlyRate * (25 / 60);
+    } else if (sizeAB(i, j) < 1.1025) {
+      return laborCostRates.hourlyRate * (30 / 60);
+    } else if (sizeAB(i, j) < 2.25) {
+      return laborCostRates.hourlyRate * (35 / 60);
+    } else {
+      return laborCostRates.hourlyRate * (55 / 60);
+    }
   }
 };
 
 //Price Calculation
 
-const est = (i, j) => {
-  return laborCost(i, j) * (1 + laborCostRates.employersSocialTax);
+const est = (i, j, state1) => {
+  return laborCost(i, j, state1) * (1 + laborCostRates.employersSocialTax);
 };
 
 const totalPanelCost = (i, j, state1) => {
@@ -128,20 +169,20 @@ const totalCornerCost = (state1) => {
   return bomCorners() * materialCheckForCorner(state1);
 };
 
-const totalTapeCost = () => {
-  return bomTape() * costsPerUnit.tapeCost["21NS05"];
+const totalTapeCost = (i, j, state1) => {
+  return bomTape(i, j, state1) * costsPerUnit.tapeCost["21NS05"];
 };
 
-const totalPanelGlueCost = () => {
-  return bomPanelGlue() * costsPerUnit.panelGlueCost["21CL02"];
+const totalPanelGlueCost = (i, j, state1) => {
+  return bomPanelGlue(i, j, state1) * costsPerUnit.panelGlueCost["21CL02"];
 };
 
 const totalFlangesGlueCost = (i, j, state1) => {
   return bomFlangeGlue(i, j) * materialCheckForFlangeGlue(state1);
 };
 
-const totalSealantCost = () => {
-  return bomSealant() * costsPerUnit.sealantCost["21SL01"];
+const totalSealantCost = (i, j, state1) => {
+  return bomSealant(i, j, state1) * costsPerUnit.sealantCost["21SL01"];
 };
 
 const totalDisksCost = (i, j, state1) => {
@@ -163,10 +204,10 @@ const totalMaterialCost = (i, j, state1) => {
     totalPanelCost(i, j, state1) +
     totalFlangeCost(i, j, state1) +
     totalCornerCost(state1) +
-    totalTapeCost() +
-    totalPanelGlueCost() +
+    totalTapeCost(i, j, state1) +
+    totalPanelGlueCost(i, j, state1) +
     totalFlangesGlueCost(i, j, state1) +
-    totalSealantCost() +
+    totalSealantCost(i, j, state1) +
     totalDisksCost(i, j, state1) +
     totalScrewCost(i, j, state1) +
     totalReinforcementCost(i, j, state1)
