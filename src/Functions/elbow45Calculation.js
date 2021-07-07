@@ -35,7 +35,7 @@ const Lu = (j, state1) => {
 };
 
 const elbow90Surface = (i, j, state1) => {
-  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu(j, state1);
+  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu(j, state1) * (4/5);
 };
 
 //Duct BOM

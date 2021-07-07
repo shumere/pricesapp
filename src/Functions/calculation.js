@@ -116,8 +116,8 @@ export const sizeA2 = (i, state1) => {
 };
 
 //SizeA3 is for fittings
-export const sizeA3 = (i) => {
-  let a3 = sizeA2(i) + (material.millerSpace["30mm"] / 1000) * 2;
+export const sizeA3 = (i, state1) => {
+  let a3 = sizeA2(i, state1) + (material.millerSpace["30mm"] / 1000) * 2;
   return a3;
 };
 
@@ -132,8 +132,8 @@ export const sizeB2 = (j, state1) => {
 };
 
 //SizeB3 is for fittings
-export const sizeB3 = (j) => {
-  let b3 = sizeB2(j) + (material.millerSpace["30mm"] / 1000) * 2;
+export const sizeB3 = (j, state1) => {
+  let b3 = sizeB2(j, state1) + (material.millerSpace["30mm"] / 1000) * 2;
   return b3;
 };
 

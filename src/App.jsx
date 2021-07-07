@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeMaterialType, clickDuct, clickElbow90, materialType, showDuct, showElbow90 } from "./index";
+import { changeMaterialType, clickDuct, clickElbow90, clickElbow45, materialType, showDuct, showElbow90, showElbow45} from "./index";
 import DuctTable from "./Components/DuctTable.jsx";
 import Elbow90Table from "./Components/Elbow90Table";
+import Elbow45Table from "./Components/Elbow45Table";
 
 import "./App.css";
 
@@ -11,9 +12,11 @@ function App() {
   let state1 = useSelector(materialType);
   let state2 = useSelector(showDuct);
   let state3 = useSelector(showElbow90)
+  let state4 = useSelector(showElbow45)
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   console.log(`Current state3 is: ${state3}`);
+  console.log(`Current state3 is: ${state4}`);
   // const CLICKBUTTON = "buttons/clickButton";
   // const CHECKBUTTON = "buttons/checkButton";
 
@@ -91,14 +94,18 @@ function App() {
     dispatch(clickElbow90(!state3));
   };
 
-  //==========
-  //Render 2nd Button
+  const clickButtonElbow45 = () => {
+    dispatch(clickElbow45(!state4));
+  };
 
-  const renderButton2 = () => {
+  //==========
+  //Render 2nd Buttons
+
+  const renderDuctButton = () => {
     return (
       <div>
         <div className="clickButton">
-          <button onClick={() => clickButtonDuct()}>2. Duct</button>
+          <button onClick={() => clickButtonDuct()}>1. Duct</button>
         </div>
         <div>{state2 ? "Duct" : ""}</div>
         <div>{state2 ? <DuctTable /> : ""}</div>
@@ -106,14 +113,26 @@ function App() {
     );
   };
 
-  const renderButton3 = () => {
+  const renderElbow90Button = () => {
     return (
       <div>
         <div className="clickButton">
-          <button onClick={() => clickButtonElbow90()}>3. Elbow90</button>
+          <button onClick={() => clickButtonElbow90()}>2. Elbow90</button>
         </div>
         <div>{state3 ? "Elbow90" : ""}</div>
         <div>{state3 ? <Elbow90Table /> : ""}</div>
+      </div>
+    );
+  };
+
+  const renderElbow45Button = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonElbow45()}>3. Elbow45</button>
+        </div>
+        <div>{state4 ? "Elbow45" : ""}</div>
+        <div>{state4 ? <Elbow45Table /> : ""}</div>
       </div>
     );
   };
@@ -136,8 +155,10 @@ function App() {
       <p>{`Current state is: ${state1}`}</p>
       <p>{`Duct state is: ${state2}`}</p>
       <p>{`Elbow90 state is: ${state3}`}</p>
-      <div>{renderButton2()}</div>
-      <div>{renderButton3()}</div>
+      <p>{`Elbow90 state is: ${state4}`}</p>
+      <div>{renderDuctButton()}</div>
+      <div>{renderElbow90Button()}</div>
+      <div>{renderElbow45Button()}</div>
     </div>
   );
 }
