@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showElbow45 } from "../index.jsx";
-import { cellContent } from "../Functions/elbow45Calculation";
+import { materialType, showReducer } from "../index.jsx";
+import { cellContent } from "../Functions/reducerCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
@@ -10,9 +10,9 @@ import {
 //Render Duct Table
 //Render 1st row as a table head
 
-const Elbow45Table = () => {
+const ReducerTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showElbow45);
+  let state2 = useSelector(showReducer);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const Elbow45Table = () => {
   //==========
   //Render the whole table
 
-  const renderElbow45Table = () => {
+  const renderReducerTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Elbow45</caption>
+            <caption>Reducer</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const Elbow45Table = () => {
     }
   };
 
-  return renderElbow45Table();
+  return renderReducerTable();
 };
 
-export default Elbow45Table;
+export default ReducerTable;

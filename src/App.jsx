@@ -1,22 +1,35 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeMaterialType, clickDuct, clickElbow90, clickElbow45, materialType, showDuct, showElbow90, showElbow45} from "./index";
+import {
+  changeMaterialType,
+  clickDuct,
+  clickElbow90,
+  clickElbow45,
+  clickReducer,
+  materialType,
+  showDuct,
+  showElbow90,
+  showElbow45,
+  showReducer,
+} from "./index";
 import DuctTable from "./Components/DuctTable.jsx";
 import Elbow90Table from "./Components/Elbow90Table";
 import Elbow45Table from "./Components/Elbow45Table";
-
+import ReducerTable from "./Components/ReducerTable";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
   let state1 = useSelector(materialType);
   let state2 = useSelector(showDuct);
-  let state3 = useSelector(showElbow90)
-  let state4 = useSelector(showElbow45)
+  let state3 = useSelector(showElbow90);
+  let state4 = useSelector(showElbow45);
+  let state5 = useSelector(showReducer);
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   console.log(`Current state3 is: ${state3}`);
   console.log(`Current state3 is: ${state4}`);
+  console.log(`Current state3 is: ${state5}`);
   // const CLICKBUTTON = "buttons/clickButton";
   // const CHECKBUTTON = "buttons/checkButton";
 
@@ -98,6 +111,10 @@ function App() {
     dispatch(clickElbow45(!state4));
   };
 
+  const clickButtonReducer = () => {
+    dispatch(clickReducer(!state5));
+  };
+
   //==========
   //Render 2nd Buttons
 
@@ -137,7 +154,17 @@ function App() {
     );
   };
 
-  
+  const renderReducerButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonReducer()}>4. Reducer</button>
+        </div>
+        <div>{state5 ? "Reducer" : ""}</div>
+        <div>{state5 ? <ReducerTable /> : ""}</div>
+      </div>
+    );
+  };
 
   return (
     <div style={{ fontSize: "2rem" }} className="App">
@@ -156,9 +183,11 @@ function App() {
       <p>{`Duct state is: ${state2}`}</p>
       <p>{`Elbow90 state is: ${state3}`}</p>
       <p>{`Elbow90 state is: ${state4}`}</p>
+      <p>{`Reducer state is: ${state5}`}</p>
       <div>{renderDuctButton()}</div>
       <div>{renderElbow90Button()}</div>
       <div>{renderElbow45Button()}</div>
+      <div>{renderReducerButton()}</div>
     </div>
   );
 }

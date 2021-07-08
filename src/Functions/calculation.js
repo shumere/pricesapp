@@ -25,6 +25,28 @@ export const materialCheckForThickness = (state1) => {
   }
 };
 
+export const materialCheckForMiller = (state1) => {
+  if (
+    state1 === "15HS31" ||
+    state1 === "15HP31" ||
+    state1 === "15HR31" ||
+    state1 === "15HR31ABT" ||
+    state1 === "15HR31PLUS" ||
+    state1 === "15HK31"
+  ) {
+    return (material.millerSpace["30mm"] / 1000) * 2;
+  } else if (
+    state1 === "15HB21" ||
+    state1 === "15HE21" ||
+    state1 === "15HN21ABT" ||
+    state1 === "15HN21PLUS"
+  ) {
+    return (material.millerSpace["20mm"] / 1000) * 2;
+  } else {
+    return 0;
+  }
+};
+
 export const materialCheckForFlanges = (state1) => {
   if (
     state1 === "15HS31" ||
@@ -117,7 +139,7 @@ export const sizeA2 = (i, state1) => {
 
 //SizeA3 is for fittings
 export const sizeA3 = (i, state1) => {
-  let a3 = sizeA2(i, state1) + (material.millerSpace["30mm"] / 1000) * 2;
+  let a3 = sizeA2(i, state1) + materialCheckForMiller(state1);
   return a3;
 };
 
@@ -133,7 +155,7 @@ export const sizeB2 = (j, state1) => {
 
 //SizeB3 is for fittings
 export const sizeB3 = (j, state1) => {
-  let b3 = sizeB2(j, state1) + (material.millerSpace["30mm"] / 1000) * 2;
+  let b3 = sizeB2(j, state1) + materialCheckForMiller(state1);
   return b3;
 };
 
