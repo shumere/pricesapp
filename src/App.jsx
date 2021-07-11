@@ -6,16 +6,28 @@ import {
   clickElbow90,
   clickElbow45,
   clickReducer,
+  clickOffset,
+  clickTee,
+  clickEndCap,
+  clickPlenum,
   materialType,
   showDuct,
   showElbow90,
   showElbow45,
   showReducer,
+  showOffset,
+  showTee,
+  showEndCap,
+  showPlenum
 } from "./index";
 import DuctTable from "./Components/DuctTable.jsx";
 import Elbow90Table from "./Components/Elbow90Table";
 import Elbow45Table from "./Components/Elbow45Table";
 import ReducerTable from "./Components/ReducerTable";
+import OffsetTable from "./Components/OffsetTable";
+import TeeTable from "./Components/TeeTable";
+import EndCapTable from "./Components/EndCapTable";
+import PlenumTable from "./Components/PlenumTable";
 import "./App.css";
 
 function App() {
@@ -25,11 +37,19 @@ function App() {
   let state3 = useSelector(showElbow90);
   let state4 = useSelector(showElbow45);
   let state5 = useSelector(showReducer);
+  let state6 = useSelector(showOffset);
+  let state7 = useSelector(showTee);
+  let state8 = useSelector(showEndCap);
+  let state9 = useSelector(showPlenum);
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   console.log(`Current state3 is: ${state3}`);
-  console.log(`Current state3 is: ${state4}`);
-  console.log(`Current state3 is: ${state5}`);
+  console.log(`Current state4 is: ${state4}`);
+  console.log(`Current state5 is: ${state5}`);
+  console.log(`Current state6 is: ${state6}`);
+  console.log(`Current state7 is: ${state7}`);
+  console.log(`Current state8 is: ${state8}`);
+  console.log(`Current state9 is: ${state9}`);
   // const CLICKBUTTON = "buttons/clickButton";
   // const CHECKBUTTON = "buttons/checkButton";
 
@@ -115,6 +135,22 @@ function App() {
     dispatch(clickReducer(!state5));
   };
 
+  const clickButtonOffset = () => {
+    dispatch(clickOffset(!state6));
+  };
+
+  const clickButtonTee = () => {
+    dispatch(clickTee(!state7));
+  };
+
+  const clickButtonEndCap = () => {
+    dispatch(clickEndCap(!state8));
+  };
+
+  const clickButtonPlenum = () => {
+    dispatch(clickPlenum(!state9));
+  };
+
   //==========
   //Render 2nd Buttons
 
@@ -166,6 +202,54 @@ function App() {
     );
   };
 
+  const renderOffsetButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonOffset()}>5. Offset</button>
+        </div>
+        <div>{state6 ? "Offset" : ""}</div>
+        <div>{state6 ? <OffsetTable /> : ""}</div>
+      </div>
+    );
+  };
+
+  const renderTeeButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonTee()}>6. Tee</button>
+        </div>
+        <div>{state7 ? "Tee" : ""}</div>
+        <div>{state7 ? <TeeTable /> : ""}</div>
+      </div>
+    );
+  };
+
+  const renderEndCapButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonEndCap()}>7. EndCap</button>
+        </div>
+        <div>{state8 ? "EndCap" : ""}</div>
+        <div>{state8 ? <EndCapTable /> : ""}</div>
+      </div>
+    );
+  };
+
+  const renderPlenumButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonPlenum()}>8. Plenum</button>
+        </div>
+        <div>{state9 ? "Plenum" : ""}</div>
+        <div>{state9 ? <PlenumTable /> : ""}</div>
+      </div>
+    );
+  };
+
   return (
     <div style={{ fontSize: "2rem" }} className="App">
       <button onClick={() => clickResetButton()}>Reset</button>
@@ -184,10 +268,18 @@ function App() {
       <p>{`Elbow90 state is: ${state3}`}</p>
       <p>{`Elbow90 state is: ${state4}`}</p>
       <p>{`Reducer state is: ${state5}`}</p>
+      <p>{`Offset state is: ${state6}`}</p>
+      <p>{`Tee state is: ${state7}`}</p>
+      <p>{`EndCap state is: ${state8}`}</p>
+      <p>{`Plenum state is: ${state9}`}</p>
       <div>{renderDuctButton()}</div>
       <div>{renderElbow90Button()}</div>
       <div>{renderElbow45Button()}</div>
       <div>{renderReducerButton()}</div>
+      <div>{renderOffsetButton()}</div>
+      <div>{renderTeeButton()}</div>
+      <div>{renderEndCapButton()}</div>
+      <div>{renderPlenumButton()}</div>
     </div>
   );
 }
