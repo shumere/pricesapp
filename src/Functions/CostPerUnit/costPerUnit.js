@@ -43,4 +43,10 @@ export const costsPerUnit = {
   reinforcementCost: {
     "21RF02": 1.33,
   },
+  uv100: {
+    uv100: 0.7,
+  },
+  climlinerslab100: {
+    climlinerslab100: 11.71,
+  },
 };

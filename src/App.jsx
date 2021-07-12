@@ -10,6 +10,7 @@ import {
   clickTee,
   clickEndCap,
   clickPlenum,
+  clickSilencer,
   materialType,
   showDuct,
   showElbow90,
@@ -18,7 +19,8 @@ import {
   showOffset,
   showTee,
   showEndCap,
-  showPlenum
+  showPlenum,
+  showSilencer
 } from "./index";
 import DuctTable from "./Components/DuctTable.jsx";
 import Elbow90Table from "./Components/Elbow90Table";
@@ -28,6 +30,7 @@ import OffsetTable from "./Components/OffsetTable";
 import TeeTable from "./Components/TeeTable";
 import EndCapTable from "./Components/EndCapTable";
 import PlenumTable from "./Components/PlenumTable";
+import SilencerTable from "./Components/SilencerTable";
 import "./App.css";
 
 function App() {
@@ -41,6 +44,7 @@ function App() {
   let state7 = useSelector(showTee);
   let state8 = useSelector(showEndCap);
   let state9 = useSelector(showPlenum);
+  let state10 = useSelector(showSilencer);
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   console.log(`Current state3 is: ${state3}`);
@@ -50,6 +54,7 @@ function App() {
   console.log(`Current state7 is: ${state7}`);
   console.log(`Current state8 is: ${state8}`);
   console.log(`Current state9 is: ${state9}`);
+  console.log(`Current state10 is: ${state10}`);
   // const CLICKBUTTON = "buttons/clickButton";
   // const CHECKBUTTON = "buttons/checkButton";
 
@@ -151,6 +156,10 @@ function App() {
     dispatch(clickPlenum(!state9));
   };
 
+  const clickButtonSilencer = () => {
+    dispatch(clickSilencer(!state9));
+  };
+
   //==========
   //Render 2nd Buttons
 
@@ -250,6 +259,18 @@ function App() {
     );
   };
 
+  const renderSilencerButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonSilencer()}>9. Silencer</button>
+        </div>
+        <div>{state10 ? "Silencer" : ""}</div>
+        <div>{state10 ? <SilencerTable /> : ""}</div>
+      </div>
+    );
+  };
+
   return (
     <div style={{ fontSize: "2rem" }} className="App">
       <button onClick={() => clickResetButton()}>Reset</button>
@@ -272,6 +293,7 @@ function App() {
       <p>{`Tee state is: ${state7}`}</p>
       <p>{`EndCap state is: ${state8}`}</p>
       <p>{`Plenum state is: ${state9}`}</p>
+      <p>{`Silencer state is: ${state10}`}</p>
       <div>{renderDuctButton()}</div>
       <div>{renderElbow90Button()}</div>
       <div>{renderElbow45Button()}</div>
@@ -280,6 +302,7 @@ function App() {
       <div>{renderTeeButton()}</div>
       <div>{renderEndCapButton()}</div>
       <div>{renderPlenumButton()}</div>
+      <div>{renderSilencerButton()}</div>
     </div>
   );
 }
