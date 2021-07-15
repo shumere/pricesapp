@@ -1,5 +1,5 @@
 import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnit } from "./CostPerUnit/costPerUnit";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
 import {
   materialCheckForFlanges,
   materialCheckForCorner,
@@ -117,7 +117,7 @@ const est = (i, j) => {
 };
 
 const totalPanelCost = (i, j, state1) => {
-  return bomPanel(i, j, state1) * costsPerUnit.panelCost[state1];
+  return bomPanel(i, j, state1) * costsPerUnitP3.panelCost[state1];
 };
 
 const totalFlangeCost = (i, j, state1) => {
@@ -129,11 +129,11 @@ const totalCornerCost = (state1) => {
 };
 
 const totalTapeCost = () => {
-  return bomTape() * costsPerUnit.tapeCost["21NS05"];
+  return bomTape() * costsPerUnitP3.tapeCost["21NS05"];
 };
 
 const totalPanelGlueCost = () => {
-  return bomPanelGlue() * costsPerUnit.panelGlueCost["21CL02"];
+  return bomPanelGlue() * costsPerUnitP3.panelGlueCost["21CL02"];
 };
 
 const totalFlangesGlueCost = (i, j, state1) => {
@@ -141,20 +141,20 @@ const totalFlangesGlueCost = (i, j, state1) => {
 };
 
 const totalSealantCost = () => {
-  return bomSealant() * costsPerUnit.sealantCost["21SL01"];
+  return bomSealant() * costsPerUnitP3.sealantCost["21SL01"];
 };
 
 const totalDisksCost = (i, j, state1) => {
-  return bomDisks(i, j, state1) * costsPerUnit.diskCost["21RF01"];
+  return bomDisks(i, j, state1) * costsPerUnitP3.diskCost["21RF01"];
 };
 
 const totalScrewCost = (i, j, state1) => {
-  return bomScrews(i, j, state1) * costsPerUnit.screwCost["21RF03"];
+  return bomScrews(i, j, state1) * costsPerUnitP3.screwCost["21RF03"];
 };
 
 const totalReinforcementCost = (i, j, state1) => {
   return (
-    bomReinforcement(i, j, state1) * costsPerUnit.reinforcementCost["21RF02"]
+    bomReinforcement(i, j, state1) * costsPerUnitP3.reinforcementCost["21RF02"]
   );
 };
 

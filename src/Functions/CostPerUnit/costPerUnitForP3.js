@@ -1,6 +1,6 @@
-// Cost per unit
+// Cost per unit for P3
 
-export const costsPerUnit = {
+export const costsPerUnitP3 = {
   panelCost: {
     "15HB21": 5,
     "15HE21": 9.44,

@@ -1,5 +1,5 @@
 import { material } from "./MaterialType/materialType";
-import { costsPerUnit } from "./CostPerUnit/costPerUnit";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
 
 //Material check for thickness
 
@@ -56,14 +56,14 @@ export const materialCheckForFlanges = (state1) => {
     state1 === "15HR31PLUS" ||
     state1 === "15HK31"
   ) {
-    return costsPerUnit.flangesCost["161/30"];
+    return costsPerUnitP3.flangesCost["161/30"];
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
-    return costsPerUnit.flangesCost[161];
+    return costsPerUnitP3.flangesCost[161];
   } else {
     return 0;
   }
@@ -78,14 +78,14 @@ export const materialCheckForCorner = (state1) => {
     state1 === "15HR31PLUS" ||
     state1 === "15HK31"
   ) {
-    return costsPerUnit.ductCornerCost["21SQ02"];
+    return costsPerUnitP3.ductCornerCost["21SQ02"];
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
-    return costsPerUnit.ductCornerCost["21SQ01"];
+    return costsPerUnitP3.ductCornerCost["21SQ01"];
   } else {
     return 0;
   }
@@ -100,14 +100,14 @@ export const materialCheckForFlangeGlue = (state1) => {
     state1 === "15HR31PLUS" ||
     state1 === "15HK31"
   ) {
-    return costsPerUnit.flangesGlueCost["21CL09"];
+    return costsPerUnitP3.flangesGlueCost["21CL09"];
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
-    return costsPerUnit.flangesGlueCost["21CL08"];
+    return costsPerUnitP3.flangesGlueCost["21CL08"];
   } else {
     return 0;
   }

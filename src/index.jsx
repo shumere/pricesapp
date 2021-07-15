@@ -37,6 +37,7 @@ const buttonSlice = createSlice({
     showEndCap: false,
     showPlenum: false,
     showSilencer: false,
+    showDamper: false,
   },
   reducers: {
     changeMaterialType: (state, action) => {
@@ -69,6 +70,9 @@ const buttonSlice = createSlice({
     clickSilencer: (state, action) => {
       return { ...state, showSilencer: action.payload };
     },
+    clickDamper: (state, action) => {
+      return { ...state, showDamper: action.payload };
+    },
   },
 });
 
@@ -89,6 +93,7 @@ export const {
   clickEndCap,
   clickPlenum,
   clickSilencer,
+  clickDamper
 } = buttonSlice.actions;
 export const materialType = (state) => state.buttons.materialType;
 export const showDuct = (state) => state.buttons.showDuct;
@@ -100,6 +105,7 @@ export const showTee = (state) => state.buttons.showTee;
 export const showEndCap = (state) => state.buttons.showEndCap;
 export const showPlenum = (state) => state.buttons.showPlenum;
 export const showSilencer = (state) => state.buttons.showSilencer;
+export const showDamper = (state) => state.buttons.showDamper;
 
 const root = document.getElementById("root");
 

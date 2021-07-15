@@ -1,5 +1,5 @@
 import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnit } from "./CostPerUnit/costPerUnit";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
 import { transportCost, gainCost, sizeA3, sizeB3, sizeAB } from "./calculation";
 
 export const endCapSurface = (i, j, state1) => {
@@ -41,11 +41,11 @@ const est = (i, j, state1) => {
 };
 
 const totalPanelCost = (i, j, state1) => {
-  return bomPanel(i, j, state1) * costsPerUnit.panelCost[state1];
+  return bomPanel(i, j, state1) * costsPerUnitP3.panelCost[state1];
 };
 
 const totalSealantCost = (i, j, state1) => {
-  return bomSealant(i, j, state1) * costsPerUnit.sealantCost["21SL01"];
+  return bomSealant(i, j, state1) * costsPerUnitP3.sealantCost["21SL01"];
 };
 
 const totalMaterialCost = (i, j, state1) => {
