@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showSilencer } from "../index.jsx";
-import { cellContent } from "../Functions/silencerCalculation";
+import { materialType, showSilencer } from "../../index.jsx";
+import { cellContent } from "../../Functions/silencerCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head

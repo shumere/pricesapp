@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showOffset } from "../index.jsx";
-import { cellContent } from "../Functions/offsetCalculation";
+import { materialType, showReducer } from "../../index.jsx";
+import { cellContent } from "../../Functions/reducerCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const OffsetTable = () => {
+const ReducerTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showOffset);
+  let state2 = useSelector(showReducer);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const OffsetTable = () => {
   //==========
   //Render the whole table
 
-  const renderOffsetTable = () => {
+  const renderReducerTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Offset</caption>
+            <caption>Reducer</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const OffsetTable = () => {
     }
   };
 
-  return renderOffsetTable();
+  return renderReducerTable();
 };
 
-export default OffsetTable;
+export default ReducerTable;

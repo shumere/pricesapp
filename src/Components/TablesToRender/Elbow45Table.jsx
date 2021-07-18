@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showElbow45 } from "../index.jsx";
-import { cellContent } from "../Functions/elbow45Calculation";
+import { materialType, showElbow45 } from "../../index.jsx";
+import { cellContent } from "../../Functions/elbow45Calculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head

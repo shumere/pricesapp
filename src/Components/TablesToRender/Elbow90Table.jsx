@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showPlenum } from "../index.jsx";
-import { cellContent } from "../Functions/plenumCalculation";
+import { materialType, showElbow90 } from "../../index.jsx";
+import { cellContent } from "../../Functions/elbow90Calculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const PlenumTable = () => {
+const Elbow90Table = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showPlenum);
+  let state2 = useSelector(showElbow90);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const PlenumTable = () => {
   //==========
   //Render the whole table
 
-  const renderPlenumTable = () => {
+  const renderElbow90Table = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Plenum</caption>
+            <caption>Elbow90</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const PlenumTable = () => {
     }
   };
 
-  return renderPlenumTable();
+  return renderElbow90Table();
 };
 
-export default PlenumTable;
+export default Elbow90Table;

@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showElbow90 } from "../index.jsx";
-import { cellContent } from "../Functions/elbow90Calculation";
+import { materialType, showTee } from "../../index.jsx";
+import { cellContent } from "../../Functions/teeCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const Elbow90Table = () => {
+const TeeTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showElbow90);
+  let state2 = useSelector(showTee);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const Elbow90Table = () => {
   //==========
   //Render the whole table
 
-  const renderElbow90Table = () => {
+  const renderTeeTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Elbow90</caption>
+            <caption>Tee</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const Elbow90Table = () => {
     }
   };
 
-  return renderElbow90Table();
+  return renderTeeTable();
 };
 
-export default Elbow90Table;
+export default TeeTable;

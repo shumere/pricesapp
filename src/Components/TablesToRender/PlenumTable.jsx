@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showTee } from "../index.jsx";
-import { cellContent } from "../Functions/teeCalculation";
+import { materialType, showPlenum } from "../../index.jsx";
+import { cellContent } from "../../Functions/plenumCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const TeeTable = () => {
+const PlenumTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showTee);
+  let state2 = useSelector(showPlenum);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const TeeTable = () => {
   //==========
   //Render the whole table
 
-  const renderTeeTable = () => {
+  const renderPlenumTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Tee</caption>
+            <caption>Plenum</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const TeeTable = () => {
     }
   };
 
-  return renderTeeTable();
+  return renderPlenumTable();
 };
 
-export default TeeTable;
+export default PlenumTable;

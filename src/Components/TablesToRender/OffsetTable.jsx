@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showDuct } from "../index.jsx";
-import { cellContent } from "../Functions/ductCalculation";
+import { materialType, showOffset } from "../../index.jsx";
+import { cellContent } from "../../Functions/offsetCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const DuctTable = () => {
+const OffsetTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showDuct);
+  let state2 = useSelector(showOffset);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const DuctTable = () => {
   //==========
   //Render the whole table
 
-  const renderDuctTable = () => {
+  const renderOffsetTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Duct</caption>
+            <caption>Offset</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const DuctTable = () => {
     }
   };
 
-  return renderDuctTable();
+  return renderOffsetTable();
 };
 
-export default DuctTable;
+export default OffsetTable;

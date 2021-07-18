@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showReducer } from "../index.jsx";
-import { cellContent } from "../Functions/reducerCalculation";
+import { materialType, showGrill } from "../../index.jsx";
+import { cellContent } from "../../Functions/grillCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation.js";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const ReducerTable = () => {
+const GrillTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showReducer);
+  let state2 = useSelector(showGrill);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const ReducerTable = () => {
   //==========
   //Render the whole table
 
-  const renderReducerTable = () => {
+  const renderGrillTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Reducer</caption>
+            <caption>Grill</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const ReducerTable = () => {
     }
   };
 
-  return renderReducerTable();
+  return renderGrillTable();
 };
 
-export default ReducerTable;
+export default GrillTable;

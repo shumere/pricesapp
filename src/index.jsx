@@ -1,28 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App/App";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-
-// const initialState = {
-//   currentState1: false,
-//   currentState2: false,
-// };
-
-// const CLICKBUTTON = "CLICKBUTTON";
-// const CHECKBUTTON = "CHECKBUTTON";
-
-// const clickReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case CHECKBUTTON:
-//       return { ...state, currentState1: action.payload };
-//     case CLICKBUTTON:
-//       return { ...state, currentState2: action.payload };
-//     default:
-//       return state;
-//   }
-// };
 
 const buttonSlice = createSlice({
   name: "buttons",
@@ -38,6 +19,7 @@ const buttonSlice = createSlice({
     showPlenum: false,
     showSilencer: false,
     showDamper: false,
+    showGrill: false,
   },
   reducers: {
     changeMaterialType: (state, action) => {
@@ -73,6 +55,9 @@ const buttonSlice = createSlice({
     clickDamper: (state, action) => {
       return { ...state, showDamper: action.payload };
     },
+    clickGrill: (state, action) => {
+      return { ...state, showGrill: action.payload };
+    },
   },
 });
 
@@ -93,7 +78,8 @@ export const {
   clickEndCap,
   clickPlenum,
   clickSilencer,
-  clickDamper
+  clickDamper,
+  clickGrill,
 } = buttonSlice.actions;
 export const materialType = (state) => state.buttons.materialType;
 export const showDuct = (state) => state.buttons.showDuct;
@@ -106,6 +92,7 @@ export const showEndCap = (state) => state.buttons.showEndCap;
 export const showPlenum = (state) => state.buttons.showPlenum;
 export const showSilencer = (state) => state.buttons.showSilencer;
 export const showDamper = (state) => state.buttons.showDamper;
+export const showGrill = (state) => state.buttons.showGrill;
 
 const root = document.getElementById("root");
 

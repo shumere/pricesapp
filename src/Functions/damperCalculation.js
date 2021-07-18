@@ -20,7 +20,21 @@ const pd1000Quantity = (i) => {
   return sizeA(i) / 0.1;
 };
 
-//Duct Damper BOMs
+const pd1003Size = (i) => {
+  return pd1002Size(i);
+};
+
+const pd1003Quantity = (j) => {
+  if (sizeB(j) >= 1 && sizeB(j) < 1.5) {
+    return 1;
+  } else if (sizeB(j) >= 1.5) {
+    return 2;
+  } else {
+    return 0;
+  }
+};
+
+//Duct Damper BOM
 
 const bomPD1001 = (j) => {
   return pd1001Size(j) * 2;
@@ -34,27 +48,27 @@ const bomPD1000 = (i) => {
   return pd1000Size(i) * pd1000Quantity(i);
 };
 
-const bomNG001 = () => {
-  return 4;
+const bomNG001 = (j) => {
+  return 4 * pd1003Quantity(j);
 };
 
-const bomNG002 = (i) => {
-  return pd1000Quantity(i);
+const bomNG002 = (i, j) => {
+  return pd1000Quantity(i) * pd1003Quantity(j);
 };
 
-const bomNG003 = (i) => {
-  return pd1000Quantity(i);
+const bomNG003 = (i, j) => {
+  return pd1000Quantity(i) * pd1003Quantity(j);
 };
 
-const bomNG004 = (i) => {
-  return pd1000Quantity(i);
+const bomNG004 = (i, j) => {
+  return pd1000Quantity(i) * pd1003Quantity(j);
 };
 
-const bomNG005 = (i) => {
-  return pd1000Quantity(i) * 2;
+const bomNG005 = (i, j) => {
+  return pd1000Quantity(i) * 2 * pd1003Quantity(j);
 };
-const bomNG006 = (i) => {
-  return pd1000Quantity(i);
+const bomNG006 = (i, j) => {
+  return pd1000Quantity(i) * pd1003Quantity(j);
 };
 
 const bomAP190 = () => {
@@ -68,17 +82,21 @@ const bomA840 = () => {
 const bomG0012 = (i) => {
   return (pd1000Quantity(i) + 1) * pd1000Size(i);
 };
+
+const bomPD1003 = (i, j) => {
+  return pd1003Quantity(j) * pd1003Size(i);
+};
 //labor cost
 
 const laborCost = (i, j) => {
   if (sizeAB(i, j) < 0.1225) {
-    return laborCostRates.hourlyRate * 1.25;
-  } else if (sizeAB(i, j) < 0.5625) {
     return laborCostRates.hourlyRate * 1.5;
-  } else if (sizeAB(i, j) < 1.1025) {
+  } else if (sizeAB(i, j) < 0.5625) {
     return laborCostRates.hourlyRate * 1.75;
-  } else if (sizeAB(i, j) < 2.25) {
+  } else if (sizeAB(i, j) < 1.1025) {
     return laborCostRates.hourlyRate * 2;
+  } else if (sizeAB(i, j) < 2.25) {
+    return laborCostRates.hourlyRate * 2.25;
   } else {
     return laborCostRates.hourlyRate * 2.5;
   }
@@ -126,16 +144,20 @@ const totalNG006Cost = (i) => {
   return bomNG006(i) * costsPerUnitProLam.damperMaterial.NG006;
 };
 
-const totalAP190 = () => {
+const totalAP190Cost = () => {
   return bomAP190() * costsPerUnitProLam.damperMaterial.AP190;
 };
 
-const totalA840 = () => {
+const totalA840Cost = () => {
   return bomA840() * costsPerUnitProLam.damperMaterial.A840;
 };
 
-const totalG0012 = (i) => {
+const totalG0012Cost = (i) => {
   return bomG0012(i) * costsPerUnitProLam.damperMaterial.G0012;
+};
+
+const totalPD1003Cost = (i, j) => {
+  return bomPD1003(i, j) * costsPerUnitProLam.damperMaterial.PD1003;
 };
 
 const totalMaterialCost = (i, j, state1) => {
@@ -149,9 +171,10 @@ const totalMaterialCost = (i, j, state1) => {
     totalNG004Cost(i) +
     totalNG005Cost(i) +
     totalNG006Cost(i) +
-    totalAP190() +
-    totalA840() +
-    totalG0012(i)
+    totalAP190Cost() +
+    totalA840Cost() +
+    totalG0012Cost(i) +
+    totalPD1003Cost(i, j)
   );
 };
 
@@ -163,7 +186,7 @@ const totalSellingPrice = (i, j, state1) => {
   return (
     Math.round(
       (totalMaterialCost(i, j, state1) * transportCost() +
-        totalCost(i, j, state1) * (1 + gainCost()*0)) *
+        totalCost(i, j, state1) * (1 + gainCost() * 0)) *
         100
     ) / 100
   );

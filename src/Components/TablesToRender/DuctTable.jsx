@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showDamper } from "../index.jsx";
-import { cellContent } from "../Functions/damperCalculation";
+import { materialType, showDuct } from "../../index.jsx";
+import { cellContent } from "../../Functions/ductCalculation";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
-} from "../Functions/calculation.js";
+} from "../../Functions/calculation";
 
 //Render Duct Table
 //Render 1st row as a table head
 
-const DamperTable = () => {
+const DuctTable = () => {
   let state1 = useSelector(materialType);
-  let state2 = useSelector(showDamper);
+  let state2 = useSelector(showDuct);
 
   const renderTableHead = (i) => {
     return <th key={i}>{i === 0 ? "0" : tableValueForTheRow(i)}</th>;
@@ -76,12 +76,12 @@ const DamperTable = () => {
   //==========
   //Render the whole table
 
-  const renderDamperTable = () => {
+  const renderDuctTable = () => {
     if (state2) {
       return (
         <div>
           <table>
-            <caption>Damper</caption>
+            <caption>Duct</caption>
             <thead>{renderTableRowWithHeads(21)}</thead>
             {renderTableRowsWithData(21)}
           </table>
@@ -90,7 +90,7 @@ const DamperTable = () => {
     }
   };
 
-  return renderDamperTable();
+  return renderDuctTable();
 };
 
-export default DamperTable;
+export default DuctTable;

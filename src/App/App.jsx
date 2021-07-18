@@ -12,6 +12,7 @@ import {
   clickPlenum,
   clickSilencer,
   clickDamper,
+  clickGrill,
   materialType,
   showDuct,
   showElbow90,
@@ -22,18 +23,20 @@ import {
   showEndCap,
   showPlenum,
   showSilencer,
-  showDamper
-} from "./index";
-import DuctTable from "./Components/DuctTable.jsx";
-import Elbow90Table from "./Components/Elbow90Table";
-import Elbow45Table from "./Components/Elbow45Table";
-import ReducerTable from "./Components/ReducerTable";
-import OffsetTable from "./Components/OffsetTable";
-import TeeTable from "./Components/TeeTable";
-import EndCapTable from "./Components/EndCapTable";
-import PlenumTable from "./Components/PlenumTable";
-import SilencerTable from "./Components/SilencerTable";
-import DamperTable from "./Components/DamperTable";
+  showDamper,
+  showGrill
+} from "../index";
+import DuctButton from "../Components/ButtonsToRender/ductButton";
+import Elbow90Table from "../Components/TablesToRender/Elbow90Table";
+import Elbow45Table from "../Components/TablesToRender/Elbow45Table";
+import ReducerTable from "../Components/TablesToRender/ReducerTable";
+import OffsetTable from "../Components/TablesToRender/OffsetTable";
+import TeeTable from "../Components/TablesToRender/TeeTable";
+import EndCapTable from "../Components/TablesToRender/EndCapTable";
+import PlenumTable from "../Components/TablesToRender/PlenumTable";
+import SilencerTable from "../Components/TablesToRender/SilencerTable";
+import DamperTable from "../Components/TablesToRender/DamperTable";
+import GrillTable from "../Components/TablesToRender/GrillTable";
 import "./App.css";
 
 function App() {
@@ -49,6 +52,7 @@ function App() {
   let state9 = useSelector(showPlenum);
   let state10 = useSelector(showSilencer);
   let state11 = useSelector(showDamper);
+  let state12 = useSelector(showGrill);
   console.log(`Current state1 is: ${state1}`);
   console.log(`Current state2 is: ${state2}`);
   console.log(`Current state3 is: ${state3}`);
@@ -60,30 +64,7 @@ function App() {
   console.log(`Current state9 is: ${state9}`);
   console.log(`Current state10 is: ${state10}`);
   console.log(`Current state11 is: ${state11}`);
-  // const CLICKBUTTON = "buttons/clickButton";
-  // const CHECKBUTTON = "buttons/checkButton";
-
-  // const changeFirstState = () => {
-  //   return {
-  //     type: CHECKBUTTON,
-  //     payload: !state1,
-  //   };
-  // };
-
-  // const changeSecondState = () => {
-  //   return {
-  //     type: CLICKBUTTON,
-  //     payload: !state2,
-  //   };
-  // };
-
-  // const clickButton1 = () => {
-  //   dispatch(changeFirstState());
-  // };
-
-  // const clickButton2 = () => {
-  //   dispatch(changeSecondState());
-  // };
+  console.log(`Current state11 is: ${state12}`);
 
   const clickResetButton = () => {
     dispatch(changeMaterialType("Undefined"));
@@ -169,20 +150,14 @@ function App() {
     dispatch(clickDamper(!state11));
   };
 
+  const clickButtonGrill = () => {
+    dispatch(clickGrill(!state12));
+  };
+
   //==========
   //Render 2nd Buttons
 
-  const renderDuctButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonDuct()}>1. Duct</button>
-        </div>
-        <div>{state2 ? "Duct" : ""}</div>
-        <div>{state2 ? <DuctTable /> : ""}</div>
-      </div>
-    );
-  };
+
 
   const renderElbow90Button = () => {
     return (
@@ -292,6 +267,18 @@ function App() {
     );
   };
 
+  const renderGrillButton = () => {
+    return (
+      <div>
+        <div className="clickButton">
+          <button onClick={() => clickButtonGrill()}>11. Grill</button>
+        </div>
+        <div>{state12 ? "Grill" : ""}</div>
+        <div>{state12 ? <GrillTable /> : ""}</div>
+      </div>
+    );
+  };
+
   return (
     <div style={{ fontSize: "2rem" }} className="App">
       <button onClick={() => clickResetButton()}>Reset</button>
@@ -316,7 +303,8 @@ function App() {
       <p>{`Plenum state is: ${state9}`}</p>
       <p>{`Silencer state is: ${state10}`}</p>
       <p>{`Damper state is: ${state11}`}</p>
-      <div>{renderDuctButton()}</div>
+      <p>{`Grill state is: ${state12}`}</p>
+      <div>{<DuctButton state2 = {state2} onClick = {() => clickButtonDuct()}/>}</div>
       <div>{renderElbow90Button()}</div>
       <div>{renderElbow45Button()}</div>
       <div>{renderReducerButton()}</div>
@@ -326,6 +314,7 @@ function App() {
       <div>{renderPlenumButton()}</div>
       <div>{renderSilencerButton()}</div>
       <div>{renderDamperButton()}</div>
+      <div>{renderGrillButton()}</div>
     </div>
   );
 }
