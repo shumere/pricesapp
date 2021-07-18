@@ -24,19 +24,19 @@ import {
   showPlenum,
   showSilencer,
   showDamper,
-  showGrill
+  showGrill,
 } from "../index";
-import DuctButton from "../Components/ButtonsToRender/ductButton";
-import Elbow90Table from "../Components/TablesToRender/Elbow90Table";
-import Elbow45Table from "../Components/TablesToRender/Elbow45Table";
-import ReducerTable from "../Components/TablesToRender/ReducerTable";
-import OffsetTable from "../Components/TablesToRender/OffsetTable";
-import TeeTable from "../Components/TablesToRender/TeeTable";
-import EndCapTable from "../Components/TablesToRender/EndCapTable";
-import PlenumTable from "../Components/TablesToRender/PlenumTable";
-import SilencerTable from "../Components/TablesToRender/SilencerTable";
-import DamperTable from "../Components/TablesToRender/DamperTable";
-import GrillTable from "../Components/TablesToRender/GrillTable";
+import DuctButton from "../Components/ButtonsToRender/DuctButton";
+import Elbow90Button from "../Components/ButtonsToRender/Elbow90Button";
+import Elbow45Button from "../Components/ButtonsToRender/Elbow45Button";
+import ReducerButton from "../Components/ButtonsToRender/ReducerButton";
+import OffsetButton from "../Components/ButtonsToRender/OffsetButton";
+import TeeButton from "../Components/ButtonsToRender/TeeButton";
+import EndCapButton from "../Components/ButtonsToRender/EndCapButton";
+import PlenumButton from "../Components/ButtonsToRender/PlenumButton";
+import SilencerButton from "../Components/ButtonsToRender/SilencerButton";
+import DamperButton from "../Components/ButtonsToRender/DamperButton";
+import GrillButton from "../Components/ButtonsToRender/GrillButton";
 import "./App.css";
 
 function App() {
@@ -155,129 +155,7 @@ function App() {
   };
 
   //==========
-  //Render 2nd Buttons
-
-
-
-  const renderElbow90Button = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonElbow90()}>2. Elbow90</button>
-        </div>
-        <div>{state3 ? "Elbow90" : ""}</div>
-        <div>{state3 ? <Elbow90Table /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderElbow45Button = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonElbow45()}>3. Elbow45</button>
-        </div>
-        <div>{state4 ? "Elbow45" : ""}</div>
-        <div>{state4 ? <Elbow45Table /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderReducerButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonReducer()}>4. Reducer</button>
-        </div>
-        <div>{state5 ? "Reducer" : ""}</div>
-        <div>{state5 ? <ReducerTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderOffsetButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonOffset()}>5. Offset</button>
-        </div>
-        <div>{state6 ? "Offset" : ""}</div>
-        <div>{state6 ? <OffsetTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderTeeButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonTee()}>6. Tee</button>
-        </div>
-        <div>{state7 ? "Tee" : ""}</div>
-        <div>{state7 ? <TeeTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderEndCapButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonEndCap()}>7. EndCap</button>
-        </div>
-        <div>{state8 ? "EndCap" : ""}</div>
-        <div>{state8 ? <EndCapTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderPlenumButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonPlenum()}>8. Plenum</button>
-        </div>
-        <div>{state9 ? "Plenum" : ""}</div>
-        <div>{state9 ? <PlenumTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderSilencerButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonSilencer()}>9. Silencer</button>
-        </div>
-        <div>{state10 ? "Silencer" : ""}</div>
-        <div>{state10 ? <SilencerTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderDamperButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonDamper()}>10. Damper</button>
-        </div>
-        <div>{state11 ? "Damper" : ""}</div>
-        <div>{state11 ? <DamperTable /> : ""}</div>
-      </div>
-    );
-  };
-
-  const renderGrillButton = () => {
-    return (
-      <div>
-        <div className="clickButton">
-          <button onClick={() => clickButtonGrill()}>11. Grill</button>
-        </div>
-        <div>{state12 ? "Grill" : ""}</div>
-        <div>{state12 ? <GrillTable /> : ""}</div>
-      </div>
-    );
-  };
+  //Render Buttons
 
   return (
     <div style={{ fontSize: "2rem" }} className="App">
@@ -304,17 +182,37 @@ function App() {
       <p>{`Silencer state is: ${state10}`}</p>
       <p>{`Damper state is: ${state11}`}</p>
       <p>{`Grill state is: ${state12}`}</p>
-      <div>{<DuctButton state2 = {state2} onClick = {() => clickButtonDuct()}/>}</div>
-      <div>{renderElbow90Button()}</div>
-      <div>{renderElbow45Button()}</div>
-      <div>{renderReducerButton()}</div>
-      <div>{renderOffsetButton()}</div>
-      <div>{renderTeeButton()}</div>
-      <div>{renderEndCapButton()}</div>
-      <div>{renderPlenumButton()}</div>
-      <div>{renderSilencerButton()}</div>
-      <div>{renderDamperButton()}</div>
-      <div>{renderGrillButton()}</div>
+      <div>
+        {<DuctButton state2={state2} onClick={() => clickButtonDuct()} />}
+      </div>
+      <div>
+        {<Elbow90Button state3={state3} onClick={() => clickButtonElbow90()} />}{" "}
+      </div>
+      <div>
+        {<Elbow45Button state4={state4} onClick={() => clickButtonElbow45()} />}
+      </div>
+      <div>
+        {<ReducerButton state5={state5} onClick={() => clickButtonReducer()} />}
+      </div>
+      <div>
+        {<OffsetButton state6={state6} onClick={() => clickButtonOffset()} />}
+      </div>
+      <div>{<TeeButton state7={state7} onClick={() => clickButtonTee()} />}</div>
+      <div>
+        {<EndCapButton state8={state8} onClick={() => clickButtonEndCap()} />}
+      </div>
+      <div>
+        {<PlenumButton state9={state9} onClick={() => clickButtonPlenum()} />}
+      </div>
+      <div>
+        {<SilencerButton state10={state10} onClick={() => clickButtonSilencer()} />}
+      </div>
+      <div>
+        {<DamperButton state11={state11} onClick={() => clickButtonDamper()} />}
+      </div>
+      <div>
+        {<GrillButton state12={state12} onClick={() => clickButtonGrill()} />}
+      </div>
     </div>
   );
 }
