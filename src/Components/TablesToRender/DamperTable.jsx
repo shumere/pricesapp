@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showDamper } from "../../index.jsx";
+import { materialType, showDamper } from "../../Reducer/buttonSlice";
 import { cellContent } from "../../Functions/damperCalculation";
 import {
   tableValueForTheRow,

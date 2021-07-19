@@ -25,7 +25,7 @@ import {
   showSilencer,
   showDamper,
   showGrill,
-} from "../index";
+} from "../Reducer/buttonSlice";
 import DuctButton from "../Components/ButtonsToRender/DuctButton";
 import Elbow90Button from "../Components/ButtonsToRender/Elbow90Button";
 import Elbow45Button from "../Components/ButtonsToRender/Elbow45Button";
@@ -53,18 +53,18 @@ function App() {
   let state10 = useSelector(showSilencer);
   let state11 = useSelector(showDamper);
   let state12 = useSelector(showGrill);
-  console.log(`Current state1 is: ${state1}`);
-  console.log(`Current state2 is: ${state2}`);
-  console.log(`Current state3 is: ${state3}`);
-  console.log(`Current state4 is: ${state4}`);
-  console.log(`Current state5 is: ${state5}`);
-  console.log(`Current state6 is: ${state6}`);
-  console.log(`Current state7 is: ${state7}`);
-  console.log(`Current state8 is: ${state8}`);
-  console.log(`Current state9 is: ${state9}`);
-  console.log(`Current state10 is: ${state10}`);
-  console.log(`Current state11 is: ${state11}`);
-  console.log(`Current state11 is: ${state12}`);
+  // console.log(`Current state1 is: ${state1}`);
+  // console.log(`Current state2 is: ${state2}`);
+  // console.log(`Current state3 is: ${state3}`);
+  // console.log(`Current state4 is: ${state4}`);
+  // console.log(`Current state5 is: ${state5}`);
+  // console.log(`Current state6 is: ${state6}`);
+  // console.log(`Current state7 is: ${state7}`);
+  // console.log(`Current state8 is: ${state8}`);
+  // console.log(`Current state9 is: ${state9}`);
+  // console.log(`Current state10 is: ${state10}`);
+  // console.log(`Current state11 is: ${state11}`);
+  // console.log(`Current state11 is: ${state12}`);
 
   const clickResetButton = () => {
     dispatch(changeMaterialType("Undefined"));

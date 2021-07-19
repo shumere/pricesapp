@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showOffset } from "../../index.jsx";
+import { materialType, showOffset } from "../../Reducer/buttonSlice";
 import { cellContent } from "../../Functions/offsetCalculation";
 import {
   tableValueForTheRow,
