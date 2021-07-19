@@ -197,7 +197,9 @@ function App() {
       <div>
         {<OffsetButton state6={state6} onClick={() => clickButtonOffset()} />}
       </div>
-      <div>{<TeeButton state7={state7} onClick={() => clickButtonTee()} />}</div>
+      <div>
+        {<TeeButton state7={state7} onClick={() => clickButtonTee()} />}
+      </div>
       <div>
         {<EndCapButton state8={state8} onClick={() => clickButtonEndCap()} />}
       </div>
@@ -205,7 +207,12 @@ function App() {
         {<PlenumButton state9={state9} onClick={() => clickButtonPlenum()} />}
       </div>
       <div>
-        {<SilencerButton state10={state10} onClick={() => clickButtonSilencer()} />}
+        {
+          <SilencerButton
+            state10={state10}
+            onClick={() => clickButtonSilencer()}
+          />
+        }
       </div>
       <div>
         {<DamperButton state11={state11} onClick={() => clickButtonDamper()} />}

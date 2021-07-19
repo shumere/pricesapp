@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const buttonSlice = createSlice({
   name: "buttons",
@@ -56,12 +56,6 @@ const buttonSlice = createSlice({
   },
 });
 
-const store = configureStore({
-  reducer: {
-    buttons: buttonSlice.reducer,
-  },
-});
-
 export const {
   changeMaterialType,
   clickDuct,
@@ -89,4 +83,4 @@ export const showSilencer = (state) => state.buttons.showSilencer;
 export const showDamper = (state) => state.buttons.showDamper;
 export const showGrill = (state) => state.buttons.showGrill;
 
-export default store;
+export default buttonSlice;
