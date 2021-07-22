@@ -1,0 +1,11 @@
+.btn {
+  @apply mx-1 px-1.5 py-1 text-base bg-green-500 text-white font-semibold rounded-lg shadow-md;
+}
+
+.btn--hover {
+  @apply bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500;
+}
+
+.btn--focus {
+  @apply focus:ring-4 ring-offset-2 focus:ring-yellow-green focus:ring-opacity-60;
+}

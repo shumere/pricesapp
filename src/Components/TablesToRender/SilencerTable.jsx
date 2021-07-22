@@ -37,7 +37,7 @@ const SilencerTable = () => {
   const renderTableData = (cellValue, j) => {
     let i = cellValue;
     return (
-      <td key={j === 1 ? i : i + j}>
+      <td key={j === 1 ? i : i + j} style={j === 1 ? {"fontWeight": "bold"} : {}}>
         {j === 1
           ? tableValueForTheFirstColumn(i)
           : state1 !== "Undefined"

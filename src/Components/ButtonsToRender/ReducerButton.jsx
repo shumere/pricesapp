@@ -1,10 +1,11 @@
 import ReducerTable from "../TablesToRender/ReducerTable";
+import Button from "../Button";
 
 const ReducerButton = (props) => {
   return (
     <div>
       <div className="clickButton">
-        <button onClick={props.onClick}>4. Reducer</button>
+        <Button onClick={props.onClick}>4. Reducer</Button>
       </div>
       <div>{props.state5 ? "Reducer" : ""}</div>
       <div>{props.state5 ? <ReducerTable /> : ""}</div>

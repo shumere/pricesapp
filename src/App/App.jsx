@@ -37,7 +37,9 @@ import PlenumButton from "../Components/ButtonsToRender/PlenumButton";
 import SilencerButton from "../Components/ButtonsToRender/SilencerButton";
 import DamperButton from "../Components/ButtonsToRender/DamperButton";
 import GrillButton from "../Components/ButtonsToRender/GrillButton";
+import Button from "../Components/Button";
 import "./App.css";
+// import "./styles.css"
 
 function App() {
   const dispatch = useDispatch();
@@ -158,18 +160,18 @@ function App() {
   //Render Buttons
 
   return (
-    <div style={{ fontSize: "2rem" }} className="App">
-      <button onClick={() => clickResetButton()}>Reset</button>
-      <button onClick={() => clickButton15HS31()}>1. 15HS31</button>
-      <button onClick={() => clickButton15HP31()}>2. 15HP31</button>
-      <button onClick={() => clickButton15HR31()}>3. 15HR31</button>
-      <button onClick={() => clickButton15HR31ABT()}>4. 15HR31ABT</button>
-      <button onClick={() => clickButton15HR31PLUS()}>5. 15HR31PLUS</button>
-      <button onClick={() => clickButton15HK31()}>6. 15HK31</button>
-      <button onClick={() => clickButton15HB21()}>7. 15HB21</button>
-      <button onClick={() => clickButton15HE21()}>8. 15HE21</button>
-      <button onClick={() => clickButton15HN21ABT()}>9. 15HN21ABT</button>
-      <button onClick={() => clickButton15HN21PLUS()}>10. 15HN21PLUS</button>
+    <div className="App">
+      <Button onClick={() => clickResetButton()}>Reset</Button>
+      <Button onClick={() => clickButton15HS31()}>1. 15HS31</Button>
+      <Button onClick={() => clickButton15HP31()}>2. 15HP31</Button>
+      <Button onClick={() => clickButton15HR31()}>3. 15HR31</Button>
+      <Button onClick={() => clickButton15HR31ABT()}>4. 15HR31ABT</Button>
+      <Button onClick={() => clickButton15HR31PLUS()}>5. 15HR31PLUS</Button>
+      <Button onClick={() => clickButton15HK31()}>6. 15HK31</Button>
+      <Button onClick={() => clickButton15HB21()}>7. 15HB21</Button>
+      <Button onClick={() => clickButton15HE21()}>8. 15HE21</Button>
+      <Button onClick={() => clickButton15HN21ABT()}>9. 15HN21ABT</Button>
+      <Button onClick={() => clickButton15HN21PLUS()}>10. 15HN21PLUS</Button>
       <p>{`Current material type is: ${state1}`}</p>
       <p>{`Duct state is: ${state2}`}</p>
       <p>{`Elbow90 state is: ${state3}`}</p>

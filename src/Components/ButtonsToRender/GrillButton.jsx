@@ -1,10 +1,11 @@
 import GrillTable from "../TablesToRender/GrillTable";
+import Button from "../Button";
 
 const GrillButton = (props) => {
   return (
     <div>
       <div className="clickButton">
-        <button onClick={props.onClick}>11. Grill</button>
+        <Button onClick={props.onClick}>11. Grill</Button>
       </div>
       <div>{props.state12 ? "Grill" : ""}</div>
       <div>{props.state12 ? <GrillTable /> : ""}</div>

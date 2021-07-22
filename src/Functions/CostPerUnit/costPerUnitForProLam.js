@@ -22,6 +22,6 @@ export const costsPerUnitProLam = {
     PL101D: 1.918,
     A130: 2.15,
     N827: 0.264,
-    Grid: 7.68
+    Grid: 6.75
   }
 };
