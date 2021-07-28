@@ -3,7 +3,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 125px 1fr;
-  grid-template-rows: 0.05fr auto 0.05fr;
+  grid-template-rows: 0.05fr auto 40px;
   grid-template-areas:
     "nav nav"
     "sidebar main"
@@ -15,7 +15,7 @@
 }
 
 .nav {
-  @apply bg-green-900 flex flex-wrap justify-center fixed inset-x-0 z-20;
+  @apply bg-green-900 flex flex-wrap justify-center;
   grid-area: nav;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .footer {
+  height: 40px;
   @apply text-white flex flex-wrap content-center justify-center fixed inset-x-0 bottom-0 z-10;
   grid-area: footer;
   background: linear-gradient(
@@ -149,6 +150,12 @@ td {
   @apply bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500 hover:text-white;
 }
 
+@media only screen and (max-width: 1080px) {
+  .footer {
+    height: auto;
+  }
+}
+
 @media only screen and (max-width: 550px) {
   .App {
     grid-template-columns: 100%;
@@ -161,6 +168,12 @@ td {
   }
   .sidebar {
     @apply flex-col justify-around;
+  }
+  .main {
+    margin-bottom: 10px;
+  }
+  .footer {
+    height: auto;
   }
 }
 
