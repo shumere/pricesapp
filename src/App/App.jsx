@@ -1,5 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ImGithub } from "react-icons/im";
+import { FaReact } from "react-icons/fa";
+import { SiRedux, SiTailwindcss } from "react-icons/si";
+import { GiClick } from "react-icons/gi";
+import {IoLogoVercel} from "react-icons/io5"
 import {
   changeMaterialType,
   clickDuct,
@@ -56,18 +61,18 @@ function App() {
   let state10 = useSelector(showSilencer);
   let state11 = useSelector(showDamper);
   let state12 = useSelector(showGrill);
-  console.log(`Current state1 is: ${state1}`);
-  console.log(`Current state2 is: ${state2}`);
-  console.log(`Current state3 is: ${state3}`);
-  console.log(`Current state4 is: ${state4}`);
-  console.log(`Current state5 is: ${state5}`);
-  console.log(`Current state6 is: ${state6}`);
-  console.log(`Current state7 is: ${state7}`);
-  console.log(`Current state8 is: ${state8}`);
-  console.log(`Current state9 is: ${state9}`);
-  console.log(`Current state10 is: ${state10}`);
-  console.log(`Current state11 is: ${state11}`);
-  console.log(`Current state11 is: ${state12}`);
+  // console.log(`Current state1 is: ${state1}`);
+  // console.log(`Current state2 is: ${state2}`);
+  // console.log(`Current state3 is: ${state3}`);
+  // console.log(`Current state4 is: ${state4}`);
+  // console.log(`Current state5 is: ${state5}`);
+  // console.log(`Current state6 is: ${state6}`);
+  // console.log(`Current state7 is: ${state7}`);
+  // console.log(`Current state8 is: ${state8}`);
+  // console.log(`Current state9 is: ${state9}`);
+  // console.log(`Current state10 is: ${state10}`);
+  // console.log(`Current state11 is: ${state11}`);
+  // console.log(`Current state11 is: ${state12}`);
 
   const clickResetButton = () => {
     dispatch(changeMaterialType("Undefined"));
@@ -263,7 +268,27 @@ function App() {
         </div>
       </div>
       <div className="footer">
-
+        <p>Copyright Ⓒ 2021. Mihails Fjodorovs. All rights reserved.</p>
+        <a href="https://reactjs.org/">
+          <FaReact className="App-logo-react" />
+        </a>
+        <a href="https://redux.js.org/">
+          <SiRedux className="App-logo" />
+        </a>
+        <a href="https://tailwindcss.com/">
+          <SiTailwindcss className="App-logo" />
+        </a>
+        <a href="https://github.com/">
+          <ImGithub className="App-logo" />
+        </a>
+        <a href="https://github.com/eXebyss">
+          Author GitHub Repo is here!
+          <GiClick />
+        </a>
+        <a href="https://vercel.com/">
+          Deployed on: Vercel
+          <IoLogoVercel />
+        </a>
       </div>
     </div>
   );
