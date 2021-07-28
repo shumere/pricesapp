@@ -2,8 +2,8 @@
   text-align: center;
   display: grid;
   height: 100vh;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 0.05fr auto 40px;
+  grid-template-columns: 125px 1fr;
+  grid-template-rows: 0.05fr auto 0.05fr;
   grid-template-areas:
     "nav nav"
     "sidebar main"
@@ -15,13 +15,13 @@
 }
 
 .nav {
-  @apply bg-green-900 flex flex-wrap justify-center;
+  @apply bg-green-900 flex flex-wrap justify-center fixed inset-x-0 z-20;
   grid-area: nav;
 }
 
 .sidebar {
   grid-area: sidebar;
-  @apply bg-green-100 flex flex-wrap justify-center;
+  @apply bg-teal-100 flex flex-wrap justify-center;
 }
 
 .sidebar p {
@@ -37,14 +37,95 @@
 }
 
 .footer {
-  padding-left: 5px;
-  @apply bg-emerald-300 flex flex-wrap content-center justify-center;
+  @apply text-white flex flex-wrap content-center justify-center fixed inset-x-0 bottom-0 z-10;
   grid-area: footer;
+  background: linear-gradient(
+    270deg,
+    #009dba,
+    #00bab4,
+    #00ba72,
+    #00ba30,
+    #2bba00,
+    #65ba00,
+    #97ba00,
+    #b0ba00,
+    #baac00
+  );
+  background-size: 1800% 1800%;
+
+  -webkit-animation: AnimationName 59s ease infinite;
+  -moz-animation: AnimationName 59s ease infinite;
+  -o-animation: AnimationName 59s ease infinite;
+  animation: AnimationName 59s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .footer a {
   padding-left: 20px;
   @apply flex flex-wrap content-center;
+}
+
+.footer p {
+  @apply flex flex-wrap content-center;
+}
+
+.footer-github {
+  gap: 5px;
+}
+
+.footer-vercel {
+  gap: 5px;
+}
+
+.icon-vercel {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20px;
+  height: 20px;
 }
 
 table {
@@ -70,17 +151,14 @@ td {
 
 @media only screen and (max-width: 550px) {
   .App {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 40px;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
       "nav"
       "sidebar"
       "main"
       "footer";
   }
-}
-
-@media only screen and (max-width: 550px) {
   .sidebar {
     @apply flex-col justify-around;
   }
@@ -90,6 +168,13 @@ td {
   height: 25px;
   width: 25px;
   pointer-events: none;
+}
+
+.App-logo-redux {
+  height: 25px;
+  width: 25px;
+  pointer-events: none;
+  margin-bottom: 10px;
 }
 
 .App-logo {
@@ -110,5 +195,23 @@ td {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo-redux {
+    animation: App-logo-redux-float infinite 3s ease-in-out;
+  }
+}
+
+@keyframes App-logo-redux-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

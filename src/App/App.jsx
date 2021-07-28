@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ImGithub } from "react-icons/im";
 import { FaReact } from "react-icons/fa";
 import { SiRedux, SiTailwindcss } from "react-icons/si";
-import { GiClick } from "react-icons/gi";
-import {IoLogoVercel} from "react-icons/io5"
+import { IoLogoVercel } from "react-icons/io5";
 import {
   changeMaterialType,
   clickDuct,
@@ -61,18 +60,6 @@ function App() {
   let state10 = useSelector(showSilencer);
   let state11 = useSelector(showDamper);
   let state12 = useSelector(showGrill);
-  // console.log(`Current state1 is: ${state1}`);
-  // console.log(`Current state2 is: ${state2}`);
-  // console.log(`Current state3 is: ${state3}`);
-  // console.log(`Current state4 is: ${state4}`);
-  // console.log(`Current state5 is: ${state5}`);
-  // console.log(`Current state6 is: ${state6}`);
-  // console.log(`Current state7 is: ${state7}`);
-  // console.log(`Current state8 is: ${state8}`);
-  // console.log(`Current state9 is: ${state9}`);
-  // console.log(`Current state10 is: ${state10}`);
-  // console.log(`Current state11 is: ${state11}`);
-  // console.log(`Current state11 is: ${state12}`);
 
   const clickResetButton = () => {
     dispatch(changeMaterialType("Undefined"));
@@ -273,7 +260,7 @@ function App() {
           <FaReact className="App-logo-react" />
         </a>
         <a href="https://redux.js.org/">
-          <SiRedux className="App-logo" />
+          <SiRedux className="App-logo-redux" />
         </a>
         <a href="https://tailwindcss.com/">
           <SiTailwindcss className="App-logo" />
@@ -281,13 +268,26 @@ function App() {
         <a href="https://github.com/">
           <ImGithub className="App-logo" />
         </a>
-        <a href="https://github.com/eXebyss">
+        <a href="https://github.com/eXebyss" className="footer-github">
           Author GitHub Repo is here!
-          <GiClick />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+            />
+          </svg>
         </a>
-        <a href="https://vercel.com/">
+        <a href="https://vercel.com/" className="footer-vercel">
           Deployed on: Vercel
-          <IoLogoVercel />
+          <IoLogoVercel className="icon-vercel" />
         </a>
       </div>
     </div>
