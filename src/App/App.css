@@ -3,7 +3,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 40px auto 40px;
+  grid-template-rows: 0.05fr auto 40px;
   grid-template-areas:
     "nav nav"
     "sidebar main"
@@ -15,7 +15,7 @@
 }
 
 .nav {
-  @apply bg-green-900 col-span-2 flex flex-wrap justify-center;
+  @apply bg-green-900 flex flex-wrap justify-center;
   grid-area: nav;
 }
 
@@ -30,6 +30,10 @@
 
 .main {
   grid-area: main;
+}
+
+.main caption {
+  @apply text-green-900 underline font-normal tracking-normal md:font-bold md:tracking-wide;
 }
 
 .footer {
@@ -50,17 +54,28 @@ caption {
 table,
 th,
 td {
-  border: 1px solid white;
-  border-collapse: collapse;
+  border: 1px solid;
+  @apply border-green-600 border-opacity-25;
+}
+
+td {
+  @apply bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500 hover:text-white;
 }
 
 @media only screen and (max-width: 550px) {
   .App {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
       "nav"
       "sidebar"
-      "main";
+      "main"
+      "footer";
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .sidebar {
+    @apply flex-col justify-around;
   }
 }
