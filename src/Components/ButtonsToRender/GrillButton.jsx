@@ -5,9 +5,8 @@ const GrillButton = (props) => {
   return (
     <div>
       <div className="clickButton">
-        <Button onClick={props.onClick}>11. Grill</Button>
+        <Button onClick={props.onClick} label="11. Grill"></Button>
       </div>
-      <div>{props.state12 ? "Grill" : ""}</div>
       <div>{props.state12 ? <GrillTable /> : ""}</div>
     </div>
   );

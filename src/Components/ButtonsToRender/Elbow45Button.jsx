@@ -5,9 +5,8 @@ const Elbow45Button = (props) => {
   return (
     <div>
       <div className="clickButton">
-        <Button onClick={props.onClick}>3. Elbow45</Button>
+        <Button onClick={props.onClick} label="3. Elbow45"></Button>
       </div>
-      <div>{props.state4 ? "Elbow45" : ""}</div>
       <div>{props.state4 ? <Elbow45Table /> : ""}</div>
     </div>
   );

@@ -5,9 +5,8 @@ const EndCapButton = (props) => {
   return (
     <div>
       <div className="clickButton">
-        <Button onClick={props.onClick}>7. EndCap</Button>
+        <Button onClick={props.onClick} label="7. EndCap"></Button>
       </div>
-      <div>{props.state8 ? "EndCap" : ""}</div>
       <div>{props.state8 ? <EndCapTable /> : ""}</div>
     </div>
   );
