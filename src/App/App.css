@@ -3,7 +3,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 125px 1fr;
-  grid-template-rows: 0.05fr auto 40px;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "nav nav"
     "sidebar main"
@@ -38,7 +38,7 @@
 
 .footer {
   height: 40px;
-  @apply text-white flex flex-wrap content-center justify-center fixed inset-x-0 bottom-0 z-10;
+  @apply text-white flex flex-wrap content-center justify-center;
   grid-area: footer;
   background: linear-gradient(
     270deg,
