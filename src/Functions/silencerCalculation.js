@@ -112,6 +112,22 @@ const laborCost = (i, j) => {
   }
 };
 
+//Material loss
+
+const materialLoss = (i, j, state1) => {
+  if (sizeAB(i, j) < 0.1225) {
+    return bomPanel(i, j, state1) * 0.1;
+  } else if (sizeAB(i, j) < 0.5625) {
+    return bomPanel(i, j, state1) * 0.2;
+  } else if (sizeAB(i, j) < 1.1025) {
+    return bomPanel(i, j, state1) * 0.3;
+  } else if (sizeAB(i, j) < 2.25) {
+    return bomPanel(i, j, state1) * 0.4;
+  } else {
+    return bomPanel(i, j, state1) * 0.7;
+  }
+};
+
 //Price Calculation
 
 const est = (i, j) => {
@@ -120,6 +136,10 @@ const est = (i, j) => {
 
 const totalPanelCost = (i, j, state1) => {
   return bomPanel(i, j, state1) * costsPerUnitP3.panelCost[state1];
+};
+
+const totalMaterialLoss = (i, j, state1) => {
+  return materialLoss(i, j, state1) * costsPerUnitP3.panelCost[state1];
 };
 
 const totalFlangeCost = (i, j, state1) => {
@@ -167,6 +187,7 @@ const totalClimlinerslab100Cost = (i, j) => {
 const totalMaterialCost = (i, j, state1) => {
   return (
     totalPanelCost(i, j, state1) +
+    totalMaterialLoss(i, j, state1) +
     totalFlangeCost(i, j, state1) +
     totalCornerCost(state1) +
     totalTapeCost() +

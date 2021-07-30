@@ -34,6 +34,22 @@ const laborCost = (i, j) => {
   }
 };
 
+//Material loss
+
+const materialLoss = (i, j, state1) => {
+  if (sizeAB(i, j) < 0.1225) {
+    return bomPanel(i, j, state1) * 0.1;
+  } else if (sizeAB(i, j) < 0.5625) {
+    return bomPanel(i, j, state1) * 0.2;
+  } else if (sizeAB(i, j) < 1.1025) {
+    return bomPanel(i, j, state1) * 0.3;
+  } else if (sizeAB(i, j) < 2.25) {
+    return bomPanel(i, j, state1) * 0.4;
+  } else {
+    return bomPanel(i, j, state1) * 0.7;
+  }
+};
+
 //Price Calculation
 
 const est = (i, j, state1) => {
@@ -42,6 +58,10 @@ const est = (i, j, state1) => {
 
 const totalPanelCost = (i, j, state1) => {
   return bomPanel(i, j, state1) * costsPerUnitP3.panelCost[state1];
+};
+
+const totalMaterialLoss = (i, j, state1) => {
+  return materialLoss(i, j, state1) * costsPerUnitP3.panelCost[state1];
 };
 
 const totalSealantCost = (i, j, state1) => {
@@ -53,7 +73,7 @@ const totalMaterialCost = (i, j, state1) => {
 };
 
 const totalCost = (i, j, state1) => {
-  return totalMaterialCost(i, j, state1) + est(i, j, state1);
+  return totalMaterialCost(i, j, state1) + est(i, j, state1) + totalMaterialLoss(i, j, state1);
 };
 
 const totalSellingPrice = (i, j, state1) => {
