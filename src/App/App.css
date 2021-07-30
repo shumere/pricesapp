@@ -179,13 +179,24 @@ td {
   }
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1110px) {
   .sidebar {
     padding-top: 100px;
     padding-bottom: 70px;
   }
   .main {
     padding-top: 100px;
+    padding-bottom: 70px;
+  }
+}
+
+@media only screen and (max-width: 585px) {
+  .sidebar {
+    padding-top: 120px;
+    padding-bottom: 70px;
+  }
+  .main {
+    padding-top: 120px;
     padding-bottom: 70px;
   }
 }
@@ -207,6 +218,7 @@ td {
   }
   .main {
     padding-top: 0px;
+    padding-bottom: 90px;
   }
 }
 
@@ -234,7 +246,7 @@ td {
     padding-top: 160px;    
   }
   .main {    
-    padding-bottom: 110px;
+    padding-bottom: 140px;
   }
 }
 
