@@ -154,7 +154,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="nav">
+      <div className="header">
         <Button onClick={() => clickResetButton()} label="0. Reset"></Button>
         <Button onClick={() => clickButton15HS31()} label="1. 15HS31"></Button>
         <Button onClick={() => clickButton15HP31()} label="2. 15HP31"></Button>
