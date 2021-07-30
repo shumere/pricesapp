@@ -1,5 +1,5 @@
-import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
+import { laborCostRates } from "./LaborCostRates/laborCostRates.js";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3.js";
 import {
   materialCheckForFlanges,
   materialCheckForCorner,
@@ -11,7 +11,7 @@ import {
   sizeA2,
   sizeB2,
   sizeAB,
-} from "./calculation";
+} from "./calculation.js";
 
 const ductLength = () => 1.2;
 

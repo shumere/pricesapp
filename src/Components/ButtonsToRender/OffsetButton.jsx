@@ -1,5 +1,6 @@
-import OffsetTable from "../TablesToRender/OffsetTable";
-import Button from "../Button";
+import React from "react";
+import OffsetTable from "../TablesToRender/OffsetTable.jsx";
+import Button from "../Button.jsx";
 
 const OffsetButton = (props) => {
   return (

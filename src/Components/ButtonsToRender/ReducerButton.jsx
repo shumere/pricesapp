@@ -1,5 +1,6 @@
-import ReducerTable from "../TablesToRender/ReducerTable";
-import Button from "../Button";
+import React from "react";
+import ReducerTable from "../TablesToRender/ReducerTable.jsx";
+import Button from "../Button.jsx";
 
 const ReducerButton = (props) => {
   return (

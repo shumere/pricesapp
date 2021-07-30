@@ -29,19 +29,19 @@ import {
   showSilencer,
   showDamper,
   showGrill,
-} from "../Reducer/buttonSlice";
-import DuctButton from "../Components/ButtonsToRender/DuctButton";
-import Elbow90Button from "../Components/ButtonsToRender/Elbow90Button";
-import Elbow45Button from "../Components/ButtonsToRender/Elbow45Button";
-import ReducerButton from "../Components/ButtonsToRender/ReducerButton";
-import OffsetButton from "../Components/ButtonsToRender/OffsetButton";
-import TeeButton from "../Components/ButtonsToRender/TeeButton";
-import EndCapButton from "../Components/ButtonsToRender/EndCapButton";
-import PlenumButton from "../Components/ButtonsToRender/PlenumButton";
-import SilencerButton from "../Components/ButtonsToRender/SilencerButton";
-import DamperButton from "../Components/ButtonsToRender/DamperButton";
-import GrillButton from "../Components/ButtonsToRender/GrillButton";
-import Button from "../Components/Button";
+} from "../Reducer/buttonSlice.js";
+import DuctButton from "../Components/ButtonsToRender/DuctButton.jsx";
+import Elbow90Button from "../Components/ButtonsToRender/Elbow90Button.jsx";
+import Elbow45Button from "../Components/ButtonsToRender/Elbow45Button.jsx";
+import ReducerButton from "../Components/ButtonsToRender/ReducerButton.jsx";
+import OffsetButton from "../Components/ButtonsToRender/OffsetButton.jsx";
+import TeeButton from "../Components/ButtonsToRender/TeeButton.jsx";
+import EndCapButton from "../Components/ButtonsToRender/EndCapButton.jsx";
+import PlenumButton from "../Components/ButtonsToRender/PlenumButton.jsx";
+import SilencerButton from "../Components/ButtonsToRender/SilencerButton.jsx";
+import DamperButton from "../Components/ButtonsToRender/DamperButton.jsx";
+import GrillButton from "../Components/ButtonsToRender/GrillButton.jsx";
+import Button from "../Components/Button.jsx";
 import "./App.css";
 import "../Components/Button.css";
 // import "./styles.css"

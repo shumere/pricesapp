@@ -1,5 +1,6 @@
-import SilencerTable from "../TablesToRender/SilencerTable";
-import Button from "../Button";
+import React from "react";
+import SilencerTable from "../TablesToRender/SilencerTable.jsx";
+import Button from "../Button.jsx";
 
 const SilencerButton = (props) => {
   return (

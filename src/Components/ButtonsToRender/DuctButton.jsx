@@ -1,5 +1,6 @@
-import DuctTable from "../TablesToRender/DuctTable";
-import Button from "../Button";
+import React from "react";
+import DuctTable from "../TablesToRender/DuctTable.jsx";
+import Button from "../Button.jsx";
 
 const DuctButton = (props) => {
   return (

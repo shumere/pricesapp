@@ -1,6 +1,6 @@
-import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
-import { transportCost, gainCost, sizeA3, sizeB3, sizeAB } from "./calculation";
+import { laborCostRates } from "./LaborCostRates/laborCostRates.js";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3.js";
+import { transportCost, gainCost, sizeA3, sizeB3, sizeAB } from "./calculation.js";
 
 export const endCapSurface = (i, j, state1) => {
   return sizeA3(i, state1) * sizeB3(j, state1);

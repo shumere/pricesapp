@@ -1,5 +1,6 @@
-import Elbow45Table from "../TablesToRender/Elbow45Table";
-import Button from "../Button";
+import React from "react";
+import Elbow45Table from "../TablesToRender/Elbow45Table.jsx";
+import Button from "../Button.jsx";
 
 const Elbow45Button = (props) => {
   return (

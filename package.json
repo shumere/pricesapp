@@ -1,6 +1,7 @@
 {
   "name": "pricesapp",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "main": "index.jsx",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
@@ -17,8 +18,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -41,8 +42,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "@svgr/webpack": "^5.5.0",
     "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "file-loader": "^6.1.1",
     "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.1"
   }
 }

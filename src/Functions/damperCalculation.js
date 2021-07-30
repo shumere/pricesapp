@@ -1,6 +1,6 @@
-import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnitProLam } from "./CostPerUnit/costPerUnitForProLam";
-import { sizeA, sizeB, sizeAB, transportCost, gainCost } from "./calculation";
+import { laborCostRates } from "./LaborCostRates/laborCostRates.js";
+import { costsPerUnitProLam } from "./CostPerUnit/costPerUnitForProLam.js";
+import { sizeA, sizeB, sizeAB, transportCost, gainCost } from "./calculation.js";
 
 //Damper Calculation
 

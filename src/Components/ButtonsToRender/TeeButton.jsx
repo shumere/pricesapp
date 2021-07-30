@@ -1,5 +1,6 @@
-import TeeTable from "../TablesToRender/TeeTable";
-import Button from "../Button";
+import React from "react";
+import TeeTable from "../TablesToRender/TeeTable.jsx";
+import Button from "../Button.jsx";
 
 const TeeButton = (props) => {
   return (

@@ -1,5 +1,5 @@
-import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
+import { laborCostRates } from "./LaborCostRates/laborCostRates.js";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3.js";
 import {
   materialCheckForThickness,
   materialCheckForFlanges,
@@ -15,8 +15,8 @@ import {
   sizeAB,
   sizeA3,
   sizeB3,
-} from "./calculation";
-import { endCapSurface } from "./endCapCalculation";
+} from "./calculation.js";
+import { endCapSurface } from "./endCapCalculation.js";
 
 const plenumHeight = (state1) => 0.1 + materialCheckForThickness(state1);
 

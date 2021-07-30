@@ -1,5 +1,6 @@
-import PlenumTable from "../TablesToRender/PlenumTable";
-import Button from "../Button";
+import React from "react";
+import PlenumTable from "../TablesToRender/PlenumTable.jsx";
+import Button from "../Button.jsx";
 
 const PlenumButton = (props) => {
   return (

@@ -1,5 +1,6 @@
-import EndCapTable from "../TablesToRender/EndCapTable";
-import Button from "../Button";
+import React from "react";
+import EndCapTable from "../TablesToRender/EndCapTable.jsx";
+import Button from "../Button.jsx";
 
 const EndCapButton = (props) => {
   return (

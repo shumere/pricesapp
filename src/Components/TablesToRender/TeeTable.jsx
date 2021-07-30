@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showTee } from "../../Reducer/buttonSlice";
-import { cellContent } from "../../Functions/teeCalculation";
+import { materialType, showTee } from "../../Reducer/buttonSlice.js";
+import { cellContent } from "../../Functions/teeCalculation.js";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,

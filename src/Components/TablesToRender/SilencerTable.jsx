@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showSilencer } from "../../Reducer/buttonSlice";
-import { cellContent } from "../../Functions/silencerCalculation";
+import { materialType, showSilencer } from "../../Reducer/buttonSlice.js";
+import { cellContent } from "../../Functions/silencerCalculation.js";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,

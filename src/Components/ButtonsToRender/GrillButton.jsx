@@ -1,5 +1,6 @@
-import GrillTable from "../TablesToRender/GrillTable";
-import Button from "../Button";
+import React from "react";
+import GrillTable from "../TablesToRender/GrillTable.jsx";
+import Button from "../Button.jsx";
 
 const GrillButton = (props) => {
   return (

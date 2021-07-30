@@ -1,5 +1,5 @@
-import { material } from "./MaterialType/materialType";
-import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
+import { material } from "./MaterialType/materialType.js";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3.js";
 
 //Material check for thickness
 

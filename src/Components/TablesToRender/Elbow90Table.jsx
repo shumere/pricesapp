@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showElbow90 } from "../../Reducer/buttonSlice";
-import { cellContent } from "../../Functions/elbow90Calculation";
+import { materialType, showElbow90 } from "../../Reducer/buttonSlice.js";
+import { cellContent } from "../../Functions/elbow90Calculation.js";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,

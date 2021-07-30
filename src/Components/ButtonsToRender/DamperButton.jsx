@@ -1,5 +1,6 @@
-import DamperTable from "../TablesToRender/DamperTable";
-import Button from "../Button";
+import React from "react";
+import DamperTable from "../TablesToRender/DamperTable.jsx";
+import Button from "../Button.jsx";
 
 const DamperButton = (props) => {
   return (

@@ -1,5 +1,5 @@
-import { laborCostRates } from "./LaborCostRates/laborCostRates";
-import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3";
+import { laborCostRates } from "./LaborCostRates/laborCostRates.js";
+import { costsPerUnitP3 } from "./CostPerUnit/costPerUnitForP3.js";
 import {
   materialCheckForFlanges,
   materialCheckForCorner,
@@ -14,7 +14,7 @@ import {
   sizeB2,
   sizeB3,
   sizeAB,
-} from "./calculation";
+} from "./calculation.js";
 
 const L1 = () => {
   return 0.05

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showEndCap } from "../../Reducer/buttonSlice";
-import { cellContent } from "../../Functions/endCapCalculation";
+import { materialType, showEndCap } from "../../Reducer/buttonSlice.js";
+import { cellContent } from "../../Functions/endCapCalculation.js";
 import {
   tableValueForTheRow,
   tableValueForTheFirstColumn,
