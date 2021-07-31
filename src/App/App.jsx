@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ImGithub } from "react-icons/im";
 import { FaReact } from "react-icons/fa";
-import { SiRedux, SiTailwindcss } from "react-icons/si";
+import { SiRedux, SiTailwindcss, SiWebpack } from "react-icons/si";
 import { IoLogoVercel } from "react-icons/io5";
 import {
   changeMaterialType,
@@ -180,19 +180,20 @@ function App() {
         ></Button>
       </div>
 
-      <div className="sidebar">
+      <div className="sidebar">        
         <p>{`Current material type is: ${state1}`}</p>
-        <p>{`Duct state is: ${state2}`}</p>
-        <p>{`Elbow90 state is: ${state3}`}</p>
-        <p>{`Elbow90 state is: ${state4}`}</p>
-        <p>{`Reducer state is: ${state5}`}</p>
-        <p>{`Offset state is: ${state6}`}</p>
-        <p>{`Tee state is: ${state7}`}</p>
-        <p>{`EndCap state is: ${state8}`}</p>
-        <p>{`Plenum state is: ${state9}`}</p>
-        <p>{`Silencer state is: ${state10}`}</p>
-        <p>{`Damper state is: ${state11}`}</p>
-        <p>{`Grill state is: ${state12}`}</p>
+        <p>{`Duct is: ${state2 ? "ON" : "OFF"}`}</p>
+        <p>{`Elbow90 is: ${state3 ? "ON" : "OFF"}`}</p>
+        <p>{`Elbow90 is: ${state4 ? "ON" : "OFF"}`}</p>
+        <p>{`Reducer is: ${state5 ? "ON" : "OFF"}`}</p>
+        <p>{`Offset is: ${state6 ? "ON" : "OFF"}`}</p>
+        <p>{`Tee is: ${state7 ? "ON" : "OFF"}`}</p>
+        <p>{`EndCap is: ${state8 ? "ON" : "OFF"}`}</p>
+        <p>{`Plenum is: ${state9 ? "ON" : "OFF"}`}</p>
+        <p>{`Silencer is: ${state10 ? "ON" : "OFF"}`}</p>
+        <p>{`Damper is: ${state11 ? "ON" : "OFF"}`}</p>
+        <p>{`Grill is: ${state12 ? "ON" : "OFF"}`}</p>
+        <p>{"Price version update date: 31.07.21"}</p>
       </div>
       <div className="main">
         <div>
@@ -263,10 +264,13 @@ function App() {
           <SiRedux className="App-logo-redux" />
         </a>
         <a href="https://tailwindcss.com/">
-          <SiTailwindcss className="App-logo" />
+          <SiTailwindcss className="App-logo-tailwind" />
         </a>
         <a href="https://github.com/">
           <ImGithub className="App-logo" />
+        </a>
+        <a href="https://webpack.js.org/">
+          <SiWebpack className="App-logo" />
         </a>
         <a href="https://github.com/eXebyss" className="footer-github">
           Author GitHub Repo is here!
