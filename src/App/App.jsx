@@ -180,7 +180,7 @@ function App() {
         ></Button>
       </div>
 
-      <div className="sidebar">        
+      <div className="sidebar">
         <p>{`Current material type is: ${state1}`}</p>
         <p>{`Duct is: ${state2 ? "ON" : "OFF"}`}</p>
         <p>{`Elbow90 is: ${state3 ? "ON" : "OFF"}`}</p>
@@ -270,7 +270,7 @@ function App() {
           <ImGithub className="App-logo" />
         </a>
         <a href="https://webpack.js.org/">
-          <SiWebpack className="App-logo" />
+          <SiWebpack className="App-logo-webpack" />
         </a>
         <a href="https://github.com/eXebyss" className="footer-github">
           Author GitHub Repo is here!
