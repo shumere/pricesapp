@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
   mode: "production",
@@ -41,5 +42,6 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new MiniCssExtractPlugin(),
+    new WebpackPwaManifest(),
   ],
 };
