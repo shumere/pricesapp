@@ -63,7 +63,7 @@ module.exports = {
           sizes: "512x512",
         },
       ],
-      start_url: ".",
+      start_url: "index.html",
       display: "standalone",
       theme_color: "#000000",
       background_color: "#ffffff",
