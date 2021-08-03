@@ -43,9 +43,15 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new WebpackPwaManifest({
-      short_name: "Prices",
-      name: "Price app for P3 ducts and fittings",
+      prefer_related_applications: false,
+      short_name: "React App",
+      name: "Create React App Sample",
       description: "Prices for all parts made of all available panel types",
+      lang: "en-US",
+      start_url: "/",
+      display: "standalone",
+      theme_color: "#000000",
+      background_color: "#ffffff",
       icons: [
         {
           src: "./public/favicon.ico",
@@ -63,10 +69,6 @@ module.exports = {
           sizes: "512x512",
         },
       ],
-      start_url: "index.html",
-      display: "standalone",
-      theme_color: "#000000",
-      background_color: "#ffffff",
     }),
   ],
 };
