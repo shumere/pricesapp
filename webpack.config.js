@@ -2,6 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const WorkboxPlugin = require("workbox-webpack-plugin");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -42,6 +45,13 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new MiniCssExtractPlugin(),
+    new FixStyleOnlyEntriesPlugin(),
+    new OptimizeCSSAssetsPlugin({}),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 6000000,
+    }),
     new WebpackPwaManifest({
       prefer_related_applications: false,
       short_name: "React App",

@@ -132,6 +132,13 @@
   height: 20px;
 }
 
+.icon-click {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 25px;
+  height: 25px;
+}
+
 table {
   margin-left: auto;
   margin-right: auto;
@@ -182,6 +189,12 @@ td {
 .App-logo {
   height: 30px;
   width: 30px;
+  pointer-events: none;
+}
+
+.App-logo-pwa {
+  height: 35px;
+  width: 35px;
   pointer-events: none;
 }
 

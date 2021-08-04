@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ImGithub } from "react-icons/im";
 import { FaReact } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiWebpack } from "react-icons/si";
-import { IoLogoVercel } from "react-icons/io5";
+import { IoLogoVercel, IoLogoPwa } from "react-icons/io5";
+import { HiOutlineCursorClick } from "react-icons/hi";
 import {
   changeMaterialType,
   clickDuct,
@@ -193,7 +194,8 @@ function App() {
         <p>{`Silencer is: ${state10 ? "ON" : "OFF"}`}</p>
         <p>{`Damper is: ${state11 ? "ON" : "OFF"}`}</p>
         <p>{`Grill is: ${state12 ? "ON" : "OFF"}`}</p>
-        <p>{"Price version update date: 31.07.21"}</p>
+        <p>{"Price version update date: 3.08.21"}</p>
+        <p>{"Previous price version update date: 31.07.21"}</p>
       </div>
       <div className="main">
         <div>
@@ -257,39 +259,32 @@ function App() {
       </div>
       <div className="footer">
         <p>Copyright Ⓒ 2021. Mihails Fjodorovs. All rights reserved.</p>
-        <a href="https://reactjs.org/">
+        <a href="https://reactjs.org/" title="ReactJS">
           <FaReact className="App-logo-react" />
         </a>
-        <a href="https://redux.js.org/">
+        <a href="https://redux.js.org/" title="ReduxJS">
           <SiRedux className="App-logo-redux" />
         </a>
-        <a href="https://tailwindcss.com/">
+        <a href="https://tailwindcss.com/" title="Tailwind">
           <SiTailwindcss className="App-logo-tailwind" />
         </a>
-        <a href="https://github.com/">
+        <a href="https://github.com/" title="GitHub">
           <ImGithub className="App-logo" />
         </a>
-        <a href="https://webpack.js.org/">
+        <a href="https://webpack.js.org/" title="Webpack">
           <SiWebpack className="App-logo-webpack" />
+        </a>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/"
+          title="PWA"
+        >
+          <IoLogoPwa className="App-logo-pwa" />
         </a>
         <a href="https://github.com/eXebyss" className="footer-github">
           Author GitHub Repo is here!
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-            />
-          </svg>
+          <HiOutlineCursorClick className="icon-click" />
         </a>
-        <a href="https://vercel.com/" className="footer-vercel">
+        <a href="https://vercel.com/" className="footer-vercel" title="Vercel">
           Deployed on: Vercel
           <IoLogoVercel className="icon-vercel" />
         </a>
