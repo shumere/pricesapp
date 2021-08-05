@@ -98,6 +98,10 @@ function App() {
     dispatch(changeMaterialType("15HE21"));
   };
 
+  const clickButton15HL21 = () => {
+    dispatch(changeMaterialType("15HL21"));
+  };
+
   const clickButton15HN21ABT = () => {
     dispatch(changeMaterialType("15HN21ABT"));
   };
@@ -171,13 +175,14 @@ function App() {
         <Button onClick={() => clickButton15HK31()} label="6. 15HK31"></Button>
         <Button onClick={() => clickButton15HB21()} label="7. 15HB21"></Button>
         <Button onClick={() => clickButton15HE21()} label="8. 15HE21"></Button>
+        <Button onClick={() => clickButton15HL21()} label="9. 15HL21"></Button>
         <Button
           onClick={() => clickButton15HN21ABT()}
-          label="9. 15HN21ABT"
+          label="10. 15HN21ABT"
         ></Button>
         <Button
           onClick={() => clickButton15HN21PLUS()}
-          label="10. 15HN21PLUS"
+          label="11. 15HN21PLUS"
         ></Button>
       </div>
 

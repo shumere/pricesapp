@@ -209,22 +209,22 @@ td {
 @media only screen and (max-width: 1110px) {
   .sidebar {
     padding-top: 100px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
   .main {
     padding-top: 100px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
 }
 
 @media only screen and (max-width: 585px) {
   .sidebar {
     padding-top: 120px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
   .main {
     padding-top: 120px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
 }
 
@@ -245,7 +245,7 @@ td {
   }
   .main {
     padding-top: 0px;
-    padding-bottom: 90px;
+    padding-bottom: 120px;
   }
 }
 
@@ -254,7 +254,7 @@ td {
     padding-top: 160px;
   }
   .main {
-    padding-bottom: 110px;
+    padding-bottom: 140px;
   }
 }
 
@@ -290,7 +290,7 @@ td {
     padding-top: 200px;
   }
   .main {
-    padding-bottom: 150px;
+    padding-bottom: 180px;
   }
 }
 

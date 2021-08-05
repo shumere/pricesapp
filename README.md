@@ -9,7 +9,7 @@
 -**Tailwind** for CSS.\
 -**Webpack** to optimize production build.\
 -*Manifest.json* and *service-worker.js* are included in **Webpack**. Check plugins.\
--**PWA** is enabled. The web-app is installable and can be run in offline mode.\
+-**PWA** is *not* enabled. The web-app is *not* installable and can *not* be run in offline mode. 🙁 (work in progress...)\
 -Deployed on **Vercel**.
 
 ## 0. To install the app:
@@ -28,11 +28,15 @@ Webpack will compile a bundle to run. This will not be optimized. You can ignore
 
 ## 2. To run the app in production build:
 
+Run the following command in your terminal:
+
 ### `npm run build`
 
 Webpack will compile a bundle to run. This is optimized. You still will get warnings about bundle maximum size. Maximum bundle size are extended and will be pre-cashed.
 
 ## 3. To run the production build:
+
+Run the following command in your terminal:
 
 ### `npm install -g serve`
 ### `serve -s dist`

@@ -4,6 +4,7 @@ export const costsPerUnitP3 = {
   panelCost: {
     "15HB21": 5.59,
     "15HE21": 10.55,
+    "15HL21": 10.297,
     "15HN21ABT": 12.298,
     "15HN21PLUS": 14.143,
     "15HS31": 10.07,

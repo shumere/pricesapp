@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App/App.jsx";
 import store from "./Store/store.js";
 import { Provider } from "react-redux";
-import _ from "lodash";
 
 const root = document.getElementById("root");
 

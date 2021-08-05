@@ -15,6 +15,7 @@ export const materialCheckForThickness = (state1) => {
     return (material.thickness["30mm"] / 1000) * 2;
   } else if (
     state1 === "15HB21" ||
+    state1 === "15HL21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
@@ -37,6 +38,7 @@ export const materialCheckForMiller = (state1) => {
     return (material.millerSpace["30mm"] / 1000) * 2;
   } else if (
     state1 === "15HB21" ||
+    state1 === "15HL21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
@@ -59,6 +61,7 @@ export const materialCheckForFlanges = (state1) => {
     return costsPerUnitP3.flangesCost["161/30"];
   } else if (
     state1 === "15HB21" ||
+    state1 === "15HL21" ||
     state1 === "15HE21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
@@ -82,6 +85,7 @@ export const materialCheckForCorner = (state1) => {
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
+    state1 === "15HL21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
@@ -104,6 +108,7 @@ export const materialCheckForFlangeGlue = (state1) => {
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
+    state1 === "15HL21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
