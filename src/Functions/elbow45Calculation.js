@@ -35,7 +35,7 @@ const Lu = (j, state1) => {
 };
 
 const elbow90Surface = (i, j, state1) => {
-  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu(j, state1) * (4/5);
+  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu(j, state1) * (4 / 5);
 };
 
 //Duct BOM
@@ -133,6 +133,7 @@ const laborCost = (i, j, state1) => {
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
+    state1 === "15HL21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {

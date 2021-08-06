@@ -17,33 +17,37 @@ import {
 } from "./calculation.js";
 
 const L1 = () => {
-  return 0.05
+  return 0.05;
 };
 
 const L2 = () => {
-  return 0.1
+  return 0.1;
 };
 
 const L3 = () => {
-  return 0.1
+  return 0.1;
 };
 
 const angle = 45;
 
 const Lu = () => {
-  return L1()/Math.cos(angle);
+  return L1() / Math.cos(angle);
 };
 
 const Sd1 = (i, j, state1) => {
-  return (sizeA3(i, state1) + sizeB3(j, state1))*2*L2()
-}
+  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * L2();
+};
 
 const Sd2 = (i, j, state1) => {
-  return (sizeA3(i, state1) + sizeB3(j, state1))*2*L3()
-}
+  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * L3();
+};
 
 const reducerSurface = (i, j, state1) => {
-  return (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu() + Sd1(i, j, state1) + Sd2(i, j, state1);
+  return (
+    (sizeA3(i, state1) + sizeB3(j, state1)) * 2 * Lu() +
+    Sd1(i, j, state1) +
+    Sd2(i, j, state1)
+  );
 };
 
 //Duct BOM
@@ -141,6 +145,7 @@ const laborCost = (i, j, state1) => {
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
+    state1 === "15HL21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {

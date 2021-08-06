@@ -133,6 +133,7 @@ const laborCost = (i, j, state1) => {
   } else if (
     state1 === "15HB21" ||
     state1 === "15HE21" ||
+    state1 === "15HL21" ||
     state1 === "15HN21ABT" ||
     state1 === "15HN21PLUS"
   ) {
