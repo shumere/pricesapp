@@ -54,8 +54,8 @@ module.exports = {
     }),
     new WebpackPwaManifest({
       prefer_related_applications: false,
-      short_name: "React App",
-      name: "Create React App Sample",
+      short_name: "Price app",
+      name: "Price app for P3",
       description: "Prices for all parts made of all available panel types",
       lang: "en-US",
       start_url: "/",
