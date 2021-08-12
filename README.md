@@ -9,7 +9,7 @@
 -**Tailwind** for CSS.\
 -**Webpack** to optimize production build.\
 -*Manifest.json* and *service-worker.js* are included in **Webpack**. Check plugins.\
--**PWA** is *not* enabled. The web-app is *not* installable and can *not* be run in offline mode. 🙁 (work in progress...)\
+-**PWA** is enabled. The web-app is installable and can be run in offline mode.\
 -Deployed on **Vercel**.
 
 ## 0. To install the app:
