@@ -1,6 +1,6 @@
 # First things first
 
-## `This is a SPA web-app`
+## `This is SPA web-app`
 
 ## Following technologies are used and implemented:
 

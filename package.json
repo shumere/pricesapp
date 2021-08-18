@@ -1,16 +1,26 @@
 {
-  "name": "priceapp-tsx",
+  "name": "priceapp",
   "version": "1.0.0",
-  "description": "## `This is a SPA web-app`",
-  "main": "postcss.config.js",
+  "description": "## `This is SPA web-app`",
+  "main": "index.tsx",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "React",
+    "Redux",
+    "React-Redux",
+    "Redux-Toolkit",
+    "Tailwindcss",
+    "TypeScript",
+    "Webpack",
+    "PWA",
+    "Vercel"
+  ],
+  "author": "Mihails Fjodorovs",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/node": "^7.14.9",
