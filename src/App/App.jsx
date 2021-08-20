@@ -1,10 +1,12 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ImGithub } from "react-icons/im";
-import { FaReact } from "react-icons/fa";
-import { SiRedux, SiTailwindcss, SiWebpack } from "react-icons/si";
-import { IoLogoVercel, IoLogoPwa } from "react-icons/io5";
-import { HiOutlineCursorClick } from "react-icons/hi";
+import { ImGithub } from "@react-icons/all-files/im/ImGithub";
+import { FaReact } from "@react-icons/all-files/fa/FaReact";
+import { SiRedux } from "@react-icons/all-files/si/SiRedux";
+import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
+import { SiWebpack } from "@react-icons/all-files/si/SiWebpack";
+import { IoLogoVercel } from "@react-icons/all-files/io5/IoLogoVercel";
+import { IoLogoPwa } from "@react-icons/all-files/io5/IoLogoPwa";
+import { HiOutlineCursorClick } from "@react-icons/all-files/hi/HiOutlineCursorClick";
 import {
   changeMaterialType,
   clickDuct,
