@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showPlenum } from "../../Reducer/buttonSlice.js";
+import { materialType, showPlenum } from "../../Reducer/buttonSlice.ts";
 import { cellContent } from "../../Functions/plenumCalculation.js";
 import {
   tableValueForTheRow,

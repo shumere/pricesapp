@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showGrill } from "../../Reducer/buttonSlice.js";
+import { materialType, showGrill } from "../../Reducer/buttonSlice.ts";
 import { cellContent } from "../../Functions/grillCalculation.js";
 import {
   tableValueForTheRow,

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import buttonSlice from "../Reducer/buttonSlice";
+import buttonSlice from "../Reducer/buttonSlice.ts";
 
 const store = configureStore({
   reducer: {

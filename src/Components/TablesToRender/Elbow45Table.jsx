@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showElbow45 } from "../../Reducer/buttonSlice.js";
+import { materialType, showElbow45 } from "../../Reducer/buttonSlice.ts";
 import { cellContent } from "../../Functions/elbow45Calculation.js";
 import {
   tableValueForTheRow,

@@ -33,7 +33,7 @@ import {
   showSilencer,
   showDamper,
   showGrill,
-} from "../Reducer/buttonSlice.js";
+} from "../Reducer/buttonSlice.ts";
 import DuctButton from "../Components/ButtonsToRender/DuctButton.jsx";
 import Elbow90Button from "../Components/ButtonsToRender/Elbow90Button.jsx";
 import Elbow45Button from "../Components/ButtonsToRender/Elbow45Button.jsx";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showEndCap } from "../../Reducer/buttonSlice.js";
+import { materialType, showEndCap } from "../../Reducer/buttonSlice.ts";
 import { cellContent } from "../../Functions/endCapCalculation.js";
 import {
   tableValueForTheRow,

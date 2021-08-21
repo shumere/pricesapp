@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { materialType, showReducer } from "../../Reducer/buttonSlice.js";
+import { materialType, showReducer } from "../../Reducer/buttonSlice.ts";
 import { cellContent } from "../../Functions/reducerCalculation.js";
 import {
   tableValueForTheRow,
