@@ -26,8 +26,8 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        test: /\.(scss|css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", 'sass-loader'],
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
@@ -55,8 +55,9 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "public/images", to: "./" },
-        { from: "public/manifest", to: "./" },
+        { from: path.resolve(__dirname, "public", "logo192.png"), to: "./" },
+        { from: path.resolve(__dirname, "public", "logo512.png"), to: "./" },
+        { from: path.resolve(__dirname, "public", "manifest.json"), to: "./"},
       ],
     }),
   ],

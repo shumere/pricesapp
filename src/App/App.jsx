@@ -46,7 +46,7 @@ import SilencerButton from "../Components/ButtonsToRender/SilencerButton.jsx";
 import DamperButton from "../Components/ButtonsToRender/DamperButton.jsx";
 import GrillButton from "../Components/ButtonsToRender/GrillButton.jsx";
 import Button from "../Components/Button.jsx";
-import "./App.css";
+import "./App.scss";
 import "../Components/Button.css";
 // import "./styles.css"
 

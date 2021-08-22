@@ -109,17 +109,17 @@ export const {
   clickGrill,
 } = buttonSlice.actions;
 
-export const materialType = (state) => state.buttons.materialType;
-export const showDuct = (state) => state.buttons.showDuct;
-export const showElbow90 = (state) => state.buttons.showElbow90;
-export const showElbow45 = (state) => state.buttons.showElbow45;
-export const showReducer = (state) => state.buttons.showReducer;
-export const showOffset = (state) => state.buttons.showOffset;
-export const showTee = (state) => state.buttons.showTee;
-export const showEndCap = (state) => state.buttons.showEndCap;
-export const showPlenum = (state) => state.buttons.showPlenum;
-export const showSilencer = (state) => state.buttons.showSilencer;
-export const showDamper = (state) => state.buttons.showDamper;
-export const showGrill = (state) => state.buttons.showGrill;
+export const materialType = (state: any) => state.buttons.materialType;
+export const showDuct = (state: any) => state.buttons.showDuct;
+export const showElbow90 = (state: any) => state.buttons.showElbow90;
+export const showElbow45 = (state: any) => state.buttons.showElbow45;
+export const showReducer = (state: any) => state.buttons.showReducer;
+export const showOffset = (state: any) => state.buttons.showOffset;
+export const showTee = (state: any) => state.buttons.showTee;
+export const showEndCap = (state: any) => state.buttons.showEndCap;
+export const showPlenum = (state: any) => state.buttons.showPlenum;
+export const showSilencer = (state: any) => state.buttons.showSilencer;
+export const showDamper = (state: any) => state.buttons.showDamper;
+export const showGrill = (state: any) => state.buttons.showGrill;
 
 export default buttonSlice;

@@ -8,10 +8,10 @@
     "header header"
     "sidebar main"
     "footer footer";
-}
 
-.App p {
-  font-size: 1rem;
+  p {
+    font-size: 1rem;
+  }
 }
 
 .header {
@@ -24,20 +24,20 @@
   padding-top: 50px;
   padding-bottom: 50px;
   @apply bg-teal-100 flex flex-wrap justify-center;
-}
 
-.sidebar p {
-  @apply font-normal tracking-normal md:font-bold md:tracking-wide;
+  p {
+    @apply font-normal tracking-normal md:font-bold md:tracking-wide;
+  }
 }
 
 .main {
   grid-area: main;
   padding-top: 50px;
   padding-bottom: 50px;
-}
 
-.main caption {
-  @apply text-green-900 underline font-normal tracking-normal md:font-bold md:tracking-wide;
+  caption {
+    @apply text-green-900 underline font-normal tracking-normal md:font-bold md:tracking-wide;
+  }
 }
 
 .footer {
@@ -61,6 +61,15 @@
   -moz-animation: AnimationName 59s ease infinite;
   -o-animation: AnimationName 59s ease infinite;
   animation: AnimationName 59s ease infinite;
+
+  a {
+    padding-left: 20px;
+    @apply flex flex-wrap content-center;
+  }
+
+  p {
+    @apply flex flex-wrap content-center;
+  }
 }
 
 @-webkit-keyframes AnimationName {
@@ -74,6 +83,7 @@
     background-position: 0% 50%;
   }
 }
+
 @-moz-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
@@ -85,6 +95,7 @@
     background-position: 0% 50%;
   }
 }
+
 @-o-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
@@ -96,6 +107,7 @@
     background-position: 0% 50%;
   }
 }
+
 @keyframes AnimationName {
   0% {
     background-position: 0% 50%;
@@ -106,15 +118,6 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-.footer a {
-  padding-left: 20px;
-  @apply flex flex-wrap content-center;
-}
-
-.footer p {
-  @apply flex flex-wrap content-center;
 }
 
 .footer-github {
