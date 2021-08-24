@@ -1,8 +1,10 @@
 const webpack = require("webpack");
 const path = require("path");
+const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const PurgecssPlugin = require("purgecss-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -27,7 +29,12 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
@@ -47,17 +54,20 @@ module.exports = {
       hashDigestLength: 20,
     }),
     new MiniCssExtractPlugin(),
+    new PurgecssPlugin({
+      paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`,  { nodir: true }),
+    }),
     new RemoveEmptyScriptsPlugin(),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
-      maximumFileSizeToCacheInBytes: 10000000,
+      maximumFileSizeToCacheInBytes: 2000000,
     }),
     new CopyPlugin({
       patterns: [
         { from: path.resolve(__dirname, "public", "logo192.png"), to: "./" },
         { from: path.resolve(__dirname, "public", "logo512.png"), to: "./" },
-        { from: path.resolve(__dirname, "public", "manifest.json"), to: "./"},
+        { from: path.resolve(__dirname, "public", "manifest.json"), to: "./" },
       ],
     }),
   ],
