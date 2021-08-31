@@ -186,7 +186,7 @@ const totalSellingPrice = (i, j, state1) => {
   return (
     Math.round(
       (totalMaterialCost(i, j, state1) * transportCost() +
-        totalCost(i, j, state1) * (1 + gainCost() * 0)) *
+        totalCost(i, j, state1) * (1 + gainCost())) *
         100
     ) / 100
   );
