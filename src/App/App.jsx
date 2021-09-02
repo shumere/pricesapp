@@ -202,8 +202,8 @@ function App() {
         <p>{`Silencer is: ${state10 ? "ON" : "OFF"}`}</p>
         <p>{`Damper is: ${state11 ? "ON" : "OFF"}`}</p>
         <p>{`Grill is: ${state12 ? "ON" : "OFF"}`}</p>
-        <p>{"Price version update date: 31.07.21"}</p>
-        <p>{"Previous price version update date: 31.08.21"}</p>
+        <p>{"Price version update date: 31.08.21"}</p>
+        <p>{"Previous price version update date: 31.07.21"}</p>
       </div>
       <div className="main">
         <div>
